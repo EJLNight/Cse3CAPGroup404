@@ -7544,7 +7544,7 @@ var indexRouteValue = 2;
 var emptySegmentValue = 1;
 var staticSegmentValue = 10;
 var splatPenalty = -2;
-var isSplat = (s2) => s2 === "*";
+var isSplat = (s) => s === "*";
 function computeScore(path, index) {
   let segments = path.split("/");
   let initialScore = segments.length;
@@ -7554,7 +7554,7 @@ function computeScore(path, index) {
   if (index) {
     initialScore += indexRouteValue;
   }
-  return segments.filter((s2) => !isSplat(s2)).reduce(
+  return segments.filter((s) => !isSplat(s)).reduce(
     (score, segment) => score + (paramRe.test(segment) ? dynamicSegmentValue : segment === "" ? emptySegmentValue : staticSegmentValue),
     initialScore
   );
@@ -9840,7 +9840,6 @@ const styles$a = {
     marginTop: "1rem"
   }
 };
-s;
 function CreateSubAdmin() {
   const [admins, setAdmins] = reactExports.useState([]);
   const [currentPage, setCurrentPage] = reactExports.useState(1);
@@ -11397,4 +11396,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // React.StrictMode helps identify potential issues in development
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-BP_BzFXI.js.map
+//# sourceMappingURL=index-DiJBdV4p.js.map
