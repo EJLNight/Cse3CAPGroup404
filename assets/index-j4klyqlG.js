@@ -11396,4 +11396,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // React.StrictMode helps identify potential issues in development
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-DiJBdV4p.js.map
+//# sourceMappingURL=index-j4klyqlG.js.map
