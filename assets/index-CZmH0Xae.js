@@ -9305,12 +9305,12 @@ function TopNav() {
       navigate("/profile");
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.navbar, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.navbar, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
         onClick: () => navigate("/"),
-        style: { ...styles$c.button, ...active === "/" ? styles$c.active : {} },
+        style: { ...styles$b.button, ...active === "/" ? styles$b.active : {} },
         children: "🏠 Home"
       }
     ),
@@ -9318,7 +9318,7 @@ function TopNav() {
       "button",
       {
         onClick: () => navigate("/quiz"),
-        style: { ...styles$c.button, ...active === "/quiz" ? styles$c.active : {} },
+        style: { ...styles$b.button, ...active === "/quiz" ? styles$b.active : {} },
         children: "❓ Quiz"
       }
     ),
@@ -9326,13 +9326,13 @@ function TopNav() {
       "button",
       {
         onClick: handleProfileClick,
-        style: { ...styles$c.button, ...active === "/profile" ? styles$c.active : {} },
+        style: { ...styles$b.button, ...active === "/profile" ? styles$b.active : {} },
         children: "👤 Profile"
       }
     )
   ] });
 }
-const styles$c = {
+const styles$b = {
   navbar: {
     position: "absolute",
     top: "1rem",
@@ -9367,17 +9367,17 @@ const styles$c = {
 function Home() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.wrapper, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles$b.title, children: "Welcome to the Death Literacy Platform" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.description, children: "This platform helps you assess your knowledge and improve your death literacy skills." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.buttonGroup, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$b.primary, children: "Start Quiz" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$b.secondary, children: "Login / Register" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.wrapper, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles$a.title, children: "Welcome to the Death Literacy Platform" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.description, children: "This platform helps you assess your knowledge and improve your death literacy skills." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.buttonGroup, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$a.primary, children: "Start Quiz" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$a.secondary, children: "Login / Register" })
       ] })
     ] })
   ] });
 }
-const styles$b = {
+const styles$a = {
   wrapper: {
     textAlign: "center",
     marginTop: "4rem",
@@ -9478,9 +9478,9 @@ function Login() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Login" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleLogin, style: styles$a.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleLogin, style: styles$9.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9489,13 +9489,13 @@ function Login() {
             value: identifier,
             onChange: (e) => setIdentifier(e.target.value),
             style: {
-              ...styles$a.input,
+              ...styles$9.input,
               borderColor: inputError ? "red" : "#ccc"
             },
             required: true
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.passwordContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.passwordContainer, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
@@ -9504,7 +9504,7 @@ function Login() {
               value: password,
               onChange: (e) => setPassword(e.target.value),
               style: {
-                ...styles$a.input,
+                ...styles$9.input,
                 borderColor: inputError ? "red" : "#ccc",
                 flex: 1
               },
@@ -9516,12 +9516,12 @@ function Login() {
             {
               type: "button",
               onClick: () => setShowPassword(!showPassword),
-              style: styles$a.toggleButton,
+              style: styles$9.toggleButton,
               children: showPassword ? "🙈 Hide" : "👁️ Show"
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.checkboxContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.checkboxContainer, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
@@ -9532,10 +9532,10 @@ function Login() {
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { marginLeft: "0.5rem" }, children: "Remember me" })
         ] }),
-        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.error, children: error }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$a.button, children: "Login" })
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.error, children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$9.button, children: "Login" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "Forgot your password? ",
           /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/forgot-password", children: "Click here" })
@@ -9552,7 +9552,7 @@ function Login() {
     ] })
   ] });
 }
-const styles$a = {
+const styles$9 = {
   container: {
     maxWidth: "400px",
     margin: "3rem auto",
@@ -9665,9 +9665,9 @@ function Register() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Register" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleRegister, style: styles$9.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleRegister, style: styles$8.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9675,7 +9675,7 @@ function Register() {
             placeholder: "Username",
             value: username,
             onChange: (e) => setUsername(e.target.value),
-            style: styles$9.input,
+            style: styles$8.input,
             required: true
           }
         ),
@@ -9686,7 +9686,7 @@ function Register() {
             placeholder: "Email",
             value: email,
             onChange: (e) => setEmail(e.target.value),
-            style: styles$9.input,
+            style: styles$8.input,
             required: true
           }
         ),
@@ -9697,7 +9697,7 @@ function Register() {
             placeholder: "Password (letters and numbers only)",
             value: password,
             onChange: (e) => setPassword(e.target.value),
-            style: styles$9.input,
+            style: styles$8.input,
             required: true
           }
         ),
@@ -9708,22 +9708,22 @@ function Register() {
             placeholder: "Confirm Password",
             value: confirmPassword,
             onChange: (e) => setConfirmPassword(e.target.value),
-            style: styles$9.input,
+            style: styles$8.input,
             required: true
           }
         ),
-        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.error, children: error }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$9.button, children: "Register" })
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.error, children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$8.button, children: "Register" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.success, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$9.linkText, children: [
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.success, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$8.linkText, children: [
         "Already have an account? ",
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "Login" })
       ] })
     ] })
   ] });
 }
-const styles$9 = {
+const styles$8 = {
   container: {
     maxWidth: "400px",
     margin: "2rem auto",
@@ -9777,9 +9777,9 @@ function ForgotPassword() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$8.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Forgot Password" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, style: styles$8.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, style: styles$7.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9787,18 +9787,18 @@ function ForgotPassword() {
             placeholder: "Enter your registered email",
             value: email,
             onChange: (e) => setEmail(e.target.value),
-            style: styles$8.input,
+            style: styles$7.input,
             required: true
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$8.button, children: "Send Reset Link" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$7.button, children: "Send Reset Link" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.message, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.linkText, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "← Back to Login" }) })
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$7.message, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$7.linkText, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "← Back to Login" }) })
     ] }) })
   ] });
 }
-const styles$8 = {
+const styles$7 = {
   wrapper: {
     padding: "1rem"
   },
@@ -9903,11 +9903,11 @@ function CreateSubAdmin() {
   const totalPages = Math.ceil(admins.length / adminsPerPage);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$6.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Create Sub-Admin Account" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", style: styles$7.link, children: "← Back to Admin Profile" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCreate, style: styles$7.createButton, children: "➕ Create Sub-Admin" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$7.table, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", style: styles$6.link, children: "← Back to Admin Profile" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCreate, style: styles$6.createButton, children: "➕ Create Sub-Admin" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$6.table, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Username" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Email" }),
@@ -9921,17 +9921,17 @@ function CreateSubAdmin() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: admin.status }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: admin.password }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => toggleStatus(admin.id), style: styles$7.actionBtn, children: admin.status === "active" ? "❄ Freeze" : "✅ Unfreeze" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(admin.id), style: styles$7.deleteBtn, children: "❌ Delete" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => toggleStatus(admin.id), style: styles$6.actionBtn, children: admin.status === "active" ? "❄ Freeze" : "✅ Unfreeze" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(admin.id), style: styles$6.deleteBtn, children: "❌ Delete" })
           ] })
         ] }, admin.id)) })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.pagination, children: Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$6.pagination, children: Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setCurrentPage(p),
           style: {
-            ...styles$7.pageBtn,
+            ...styles$6.pageBtn,
             backgroundColor: currentPage === p ? "#007bff" : "#eee",
             color: currentPage === p ? "#fff" : "#000"
           },
@@ -9942,7 +9942,7 @@ function CreateSubAdmin() {
     ] }) })
   ] });
 }
-const styles$7 = {
+const styles$6 = {
   wrapper: {
     padding: "1rem"
   },
@@ -10055,7 +10055,7 @@ function AdminProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Admin Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Logged in as:" }),
@@ -10065,7 +10065,7 @@ function AdminProfile() {
         user == null ? void 0 : user.role,
         ")"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.searchSection, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.searchSection, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -10073,12 +10073,12 @@ function AdminProfile() {
             placeholder: "Search user by username",
             value: searchUsername,
             onChange: (e) => setSearchUsername(e.target.value),
-            style: styles$6.input
+            style: styles$5.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$6.button, children: "Search" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$5.button, children: "Search" })
       ] }),
-      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.result, children: [
+      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.result, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
           "User: ",
           foundUserData.username
@@ -10101,7 +10101,7 @@ function AdminProfile() {
             "button",
             {
               onClick: () => exportSingleRecord(foundUserData.username, foundUserData.email, q),
-              style: styles$6.exportBtn,
+              style: styles$5.exportBtn,
               children: "📥 Export This"
             }
           )
@@ -10114,24 +10114,24 @@ function AdminProfile() {
               foundUserData.email,
               foundUserData.quizRecords
             ),
-            style: styles$6.exportBtn,
+            style: styles$5.exportBtn,
             children: "📤 Export All Records (CSV)"
           }
         )
       ] }) : searchUsername && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No user found or no records." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { style: { margin: "2rem 0" } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/questions", children: "🧠 Manage Question Bank" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/data", children: "📊 Export & Analyze User Data" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         (user == null ? void 0 : user.username) === "admin" && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/create-admin", children: "👤 Create Sub-Admin Account" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$6.logoutButton, children: "🚪 Logout" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$5.logoutButton, children: "🚪 Logout" })
     ] })
   ] });
 }
-const styles$6 = {
+const styles$5 = {
   container: {
     maxWidth: "700px",
     margin: "2rem auto",
@@ -10226,7 +10226,7 @@ function SubAdminProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Sub-Admin Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Logged in as:" }),
@@ -10236,7 +10236,7 @@ function SubAdminProfile() {
         user == null ? void 0 : user.role,
         ")"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.searchSection, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.searchSection, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -10244,12 +10244,12 @@ function SubAdminProfile() {
             placeholder: "Search user by username",
             value: searchUsername,
             onChange: (e) => setSearchUsername(e.target.value),
-            style: styles$5.input
+            style: styles$4.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$5.button, children: "Search" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$4.button, children: "Search" })
       ] }),
-      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.result, children: [
+      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.result, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
           "User: ",
           foundUserData.username
@@ -10267,23 +10267,23 @@ function SubAdminProfile() {
           "button",
           {
             onClick: () => exportToCSV$1(foundUserData.quizRecords, foundUserData.username),
-            style: styles$5.downloadButton,
+            style: styles$4.downloadButton,
             children: "📤 Download CSV"
           }
         )
       ] }) : searchUsername && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No user found." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { style: { margin: "2rem 0" } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/questions", children: "🧠 Manage Question Bank" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/data", children: "📊 Export & Analyze User Data" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$5.logoutButton, children: "🚪 Logout" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$4.logoutButton, children: "🚪 Logout" })
     ] }) })
   ] });
 }
-const styles$5 = {
+const styles$4 = {
   container: {
     maxWidth: "700px",
     margin: "0 auto",
@@ -10420,7 +10420,7 @@ function UserProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "User Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
@@ -10432,7 +10432,7 @@ function UserProfile() {
         " ",
         user.username
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Subscription" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "Status: ",
@@ -10447,13 +10447,13 @@ function UserProfile() {
           subscription.plan
         ] }),
         isExpired && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "red", fontWeight: "bold" }, children: "Your subscription has expired. Please renew to regain access." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/subscribe", style: styles$4.linkButton, children: "🔗 Go to Subscription Page" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/subscribe", style: styles$3.linkButton, children: "🔗 Go to Subscription Page" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Your Quiz Records" }),
         quizRecords.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: exportAllCSV, style: styles$4.exportAllButton, children: "📥 Export All as CSV" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$4.list, children: quizRecords.map((q, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$4.recordItem, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: exportAllCSV, style: styles$3.exportAllButton, children: "📥 Export All as CSV" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$3.list, children: quizRecords.map((q, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$3.recordItem, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: q.title }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
@@ -10467,14 +10467,14 @@ function UserProfile() {
               "button",
               {
                 onClick: () => exportSingleCSV(user.username, user.email, q, idx),
-                style: styles$4.exportBtn,
+                style: styles$3.exportBtn,
                 children: "📤 Export"
               }
             )
           ] }, idx)) })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No quiz records found." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Change Password" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
@@ -10483,7 +10483,7 @@ function UserProfile() {
             placeholder: "Current Password",
             value: oldPassword,
             onChange: (e) => setOldPassword(e.target.value),
-            style: styles$4.input
+            style: styles$3.input
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10493,7 +10493,7 @@ function UserProfile() {
             placeholder: "New Password",
             value: newPassword,
             onChange: (e) => setNewPassword(e.target.value),
-            style: styles$4.input
+            style: styles$3.input
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10503,17 +10503,17 @@ function UserProfile() {
             placeholder: "Confirm New Password",
             value: confirmPassword,
             onChange: (e) => setConfirmPassword(e.target.value),
-            style: styles$4.input
+            style: styles$3.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePasswordChange, style: styles$4.button, children: "Update Password" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePasswordChange, style: styles$3.button, children: "Update Password" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$4.message, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$4.logoutButton, children: "🚪 Logout" })
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$3.message, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$3.logoutButton, children: "🚪 Logout" })
     ] })
   ] });
 }
-const styles$4 = {
+const styles$3 = {
   container: {
     maxWidth: "700px",
     margin: "2rem auto",
@@ -10853,9 +10853,9 @@ function AdminData() {
   const averageScore = filtered.length > 0 ? (filtered.reduce((sum, r) => sum + r.score, 0) / filtered.length).toFixed(2) : "N/A";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Export & Analyze Quiz Data" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.controls, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.controls, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -10863,11 +10863,11 @@ function AdminData() {
             placeholder: "Filter by username",
             value: filter,
             onChange: (e) => setFilter(e.target.value),
-            style: styles$3.input
+            style: styles$2.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToCSV(filtered), style: styles$3.exportButton, children: "📤 Export CSV" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToJSON(filtered), style: styles$3.exportButton, children: "📥 Export JSON" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToCSV(filtered), style: styles$2.exportButton, children: "📤 Export CSV" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToJSON(filtered), style: styles$2.exportButton, children: "📥 Export JSON" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Average Score:" }),
@@ -10878,7 +10878,7 @@ function AdminData() {
         " ",
         filtered.length
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$3.tableWrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$3.table, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$2.tableWrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$2.table, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Username" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Email" }),
@@ -10897,7 +10897,7 @@ function AdminData() {
     ] })
   ] });
 }
-const styles$3 = {
+const styles$2 = {
   container: {
     maxWidth: "1000px",
     margin: "2rem auto",
@@ -10943,23 +10943,32 @@ function Quiz() {
   if (stored.length < 20) {
     const usedSet = new Set(stored.map((q) => q.text));
     const remaining = questions.filter((q) => !usedSet.has(q.text));
-    const needed = 20 - stored.length;
-    const filler = remaining.sort(() => 0.5 - Math.random()).slice(0, needed);
+    const filler = remaining.sort(() => 0.5 - Math.random()).slice(0, 20 - stored.length);
     stored = [...stored, ...filler];
   }
   const questions$1 = stored.sort(() => 0.5 - Math.random()).slice(0, 20);
   const [currentIndex, setCurrentIndex] = reactExports.useState(0);
   const [selected, setSelected] = reactExports.useState("");
+  const [answers, setAnswers] = reactExports.useState([]);
   const current = questions$1[currentIndex];
   const handleSubmit = () => {
     if (!selected) {
       alert("Please select an answer.");
       return;
     }
+    const record = {
+      question: current.text,
+      correct: (current.answer || current.correct || "").toLowerCase(),
+      selected,
+      isCorrect: selected === (current.answer || current.correct || "").toLowerCase()
+    };
+    const updatedAnswers = [...answers, record];
     if (currentIndex < questions$1.length - 1) {
+      setAnswers(updatedAnswers);
       setCurrentIndex(currentIndex + 1);
       setSelected("");
     } else {
+      localStorage.setItem("quizResult", JSON.stringify(updatedAnswers));
       navigate("/result");
     }
   };
@@ -11004,92 +11013,59 @@ function Quiz() {
   ] });
 }
 function Result() {
-  const navigate = useNavigate();
-  const [result, setResult] = reactExports.useState(null);
-  const [saved, setSaved] = reactExports.useState(false);
+  const [result, setResult] = reactExports.useState([]);
+  const [score, setScore] = reactExports.useState(0);
+  const [feedback, setFeedback] = reactExports.useState("");
   reactExports.useEffect(() => {
-    const stored = localStorage.getItem("lastResult");
-    if (stored) {
-      setResult(JSON.parse(stored));
+    const stored = JSON.parse(localStorage.getItem("quizResult")) || [];
+    setResult(stored);
+    const correctCount = stored.filter((q) => q.isCorrect).length;
+    setScore(correctCount);
+    setFeedback(generateFakeFeedback(correctCount));
+  }, []);
+  const generateFakeFeedback = (score2) => {
+    if (score2 < 8) {
+      return "You might be new to death literacy topics. A good starting point is learning about Advance Care Planning.";
+    } else if (score2 < 15) {
+      return "You have a basic understanding of some death literacy areas. Keep exploring topics like Palliative Care and cultural perspectives.";
+    } else if (score2 < 20) {
+      return "You demonstrate a solid level of death literacy. Consider sharing this knowledge to support others.";
     } else {
-      navigate("/quiz");
+      return "Outstanding! Your death literacy knowledge is exceptional. You could be a death literacy advocate.";
     }
-  }, [navigate]);
-  const handleSave = () => {
-    const result2 = JSON.parse(localStorage.getItem("lastResult"));
-    const user = JSON.parse(localStorage.getItem("user"));
-    if (!user) {
-      alert("Please login to save your result.");
-      navigate("/login");
-      return;
-    }
-    const updatedUser = {
-      ...user,
-      quizRecords: [...user.quizRecords || [], result2]
-    };
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    setSaved(true);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.container, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Quiz Result" }),
-      result && /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Score:" }),
-          " ",
-          result.score
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "2rem" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { children: [
+        "Your Score: ",
+        score,
+        " / ",
+        result.length
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "🧠 Personalized Feedback:" }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { background: "#f2f2f2", padding: "1rem", borderRadius: "6px" }, children: feedback }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { children: result.map((q, i) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: { marginBottom: "1rem" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("strong", { children: [
+          "Q",
+          i + 1,
+          ": ",
+          q.question
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Feedback:" }),
-          " ",
-          result.feedback
-        ] })
-      ] }),
-      !saved ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSave, style: styles$2.button, children: "💾 Save to Profile" }) : /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$2.successMsg, children: [
-        "✅ Saved! Go to your ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", children: "profile" }),
-        "."
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$2.linkButton, children: "🔁 Try Again" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        "✅ Correct Answer: ",
+        q.correct.toUpperCase(),
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        "📝 Your Answer: ",
+        q.selected.toUpperCase(),
+        " ",
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        q.isCorrect ? "✔️ Correct" : "❌ Incorrect"
+      ] }, i)) })
     ] })
   ] });
 }
-const styles$2 = {
-  container: {
-    maxWidth: "500px",
-    margin: "2rem auto",
-    padding: "2rem",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    textAlign: "center",
-    backgroundColor: "#fff",
-    boxShadow: "0 0 10px rgba(0,0,0,0.05)"
-  },
-  button: {
-    marginTop: "1rem",
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#28a745",
-    color: "#fff",
-    border: "none",
-    fontSize: "1rem",
-    cursor: "pointer",
-    borderRadius: "5px"
-  },
-  linkButton: {
-    display: "inline-block",
-    marginTop: "1rem",
-    padding: "0.6rem 1.2rem",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    textDecoration: "none",
-    borderRadius: "5px"
-  },
-  successMsg: {
-    color: "green",
-    marginTop: "1rem"
-  }
-};
 function Pricing() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
@@ -11346,4 +11322,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // React.StrictMode helps identify potential issues in development
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-Df-1HLi7.js.map
+//# sourceMappingURL=index-CZmH0Xae.js.map
