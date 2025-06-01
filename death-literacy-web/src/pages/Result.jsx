@@ -1,102 +1,99 @@
-import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import TopNav from "../components/TopNav";
+import jsPDF from "jspdf";
 
 function Result() {
   const navigate = useNavigate();
-  const [result, setResult] = useState(null);
-  const [saved, setSaved] = useState(false);
+  const [result, setResult] = useState([]);
+  const [score, setScore] = useState(0);
+  const resultRef = useRef();
 
+  // Load quiz result from localStorage
   useEffect(() => {
-    const stored = localStorage.getItem("lastResult");
-    if (stored) {
-      setResult(JSON.parse(stored));
-    } else {
-      navigate("/quiz");
-    }
-  }, [navigate]);
+    const stored = JSON.parse(localStorage.getItem("quizResult") || "[]");
+    setResult(stored);
+    const correctCount = stored.filter(q => q.isCorrect).length;
+    setScore(correctCount);
+  }, []);
 
-  const handleSave = () => {
-    const result = JSON.parse(localStorage.getItem("lastResult"));
+  // Generate and download result PDF
+  const handleDownloadPDF = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(14);
+    doc.text("Quiz Result", 10, 10);
+    doc.text(`Score: ${score} / ${result.length}`, 10, 20);
+
+    let y = 30;
+    result.forEach((item, index) => {
+      doc.text(`${index + 1}. ${item.question}`, 10, y);
+      y += 7;
+      doc.text(`Your Answer: ${item.selected?.toUpperCase()} | Correct: ${item.correct?.toUpperCase()}`, 12, y);
+      y += 10;
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+    });
+
+    doc.save("quiz-result.pdf");
+  };
+
+  // Handle Save button: logged-in users save now; guests redirected and save later
+  const handleSaveRecord = () => {
     const user = JSON.parse(localStorage.getItem("user"));
-
-    if (!user) {
-      alert("Please login to save your result.");
-      navigate("/login");
-      return;
-    }
-
-    const updatedUser = {
-      ...user,
-      quizRecords: [...(user.quizRecords || []), result],
+    const newEntry = {
+      timestamp: new Date().toISOString(),
+      score,
+      total: result.length,
+      answers: result,
     };
 
-    localStorage.setItem("user", JSON.stringify(updatedUser));
-    setSaved(true);
+    if (!user) {
+      // Guest: store pending record and redirect to register
+      localStorage.setItem("pendingRecord", JSON.stringify(newEntry));
+      navigate("/register");
+    } else {
+      // Logged in: save immediately
+      const history = JSON.parse(localStorage.getItem("quizHistory") || "[]");
+      const completeEntry = { ...newEntry, username: user.username };
+      localStorage.setItem("quizHistory", JSON.stringify([...history, completeEntry]));
+      navigate("/profile");
+    }
   };
 
   return (
     <>
       <TopNav />
-      <div style={styles.container}>
-        <h2>Quiz Result</h2>
+      <div style={{ padding: "2rem" }} ref={resultRef}>
+        <h2>Quiz Completed</h2>
+        <p style={{ fontSize: "1.2rem" }}>
+          ✅ Your Score: {score} / {result.length}
+        </p>
 
-        {result && (
-          <>
-            <p><strong>Score:</strong> {result.score}</p>
-            <p><strong>Feedback:</strong> {result.feedback}</p>
-          </>
-        )}
+        <h3>Answer Summary:</h3>
+        <ul>
+          {result.map((item, index) => (
+            <li key={index} style={{ marginBottom: "1rem" }}>
+              <strong>Q{index + 1}: {item.question}</strong><br />
+              Your Answer: {item.selected?.toUpperCase()} <br />
+              Correct Answer: {item.correct?.toUpperCase()} <br />
+              {item.isCorrect ? "✔️ Correct" : "❌ Incorrect"}
+            </li>
+          ))}
+        </ul>
 
-        {!saved ? (
-          <button onClick={handleSave} style={styles.button}>💾 Save to Profile</button>
-        ) : (
-          <p style={styles.successMsg}>
-            ✅ Saved! Go to your <Link to="/profile">profile</Link>.
-          </p>
-        )}
-
-        <Link to="/quiz" style={styles.linkButton}>🔁 Try Again</Link>
+        <div style={{ marginTop: "2rem" }}>
+          <button onClick={handleDownloadPDF} style={{ marginRight: "1rem" }}>
+            📥 Download PDF
+          </button>
+          <button onClick={handleSaveRecord}>
+            💾 Save Record
+          </button>
+        </div>
       </div>
     </>
   );
 }
-
-// Responsive inline styles
-const styles = {
-  container: {
-    maxWidth: "500px",
-    margin: "2rem auto",
-    padding: "2rem",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    textAlign: "center",
-    backgroundColor: "#fff",
-    boxShadow: "0 0 10px rgba(0,0,0,0.05)",
-  },
-  button: {
-    marginTop: "1rem",
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#28a745",
-    color: "#fff",
-    border: "none",
-    fontSize: "1rem",
-    cursor: "pointer",
-    borderRadius: "5px",
-  },
-  linkButton: {
-    display: "inline-block",
-    marginTop: "1rem",
-    padding: "0.6rem 1.2rem",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    textDecoration: "none",
-    borderRadius: "5px",
-  },
-  successMsg: {
-    color: "green",
-    marginTop: "1rem",
-  }
-};
 
 export default Result;

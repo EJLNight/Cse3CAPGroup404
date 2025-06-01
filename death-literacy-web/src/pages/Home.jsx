@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import TopNav from "../components/TopNav"; // Global top navigation
+import deathLiteracyImg from "../assets/resources/death-literacy.png"; // ✅ Image import
 
 function Home() {
   return (
@@ -10,6 +11,19 @@ function Home() {
         <p style={styles.description}>
           This platform helps you assess your knowledge and improve your death literacy skills.
         </p>
+
+        {/* ✅ Added visual + explanation block from the resource site */}
+        <div style={styles.previewBlock}>
+          <img
+            src={deathLiteracyImg}
+            alt="What is Death Literacy?"
+            style={styles.image}
+          />
+          <p style={styles.previewText}>
+            Test your knowledge about end-of-life, palliative care, and more.
+            This quiz will help you understand important aspects of death literacy and advance care planning.
+          </p>
+        </div>
 
         {/* Navigation Buttons */}
         <div style={styles.buttonGroup}>
@@ -38,6 +52,24 @@ const styles = {
     maxWidth: "500px",
     margin: "0 auto",
   },
+  previewBlock: {
+    marginTop: "2rem",
+    maxWidth: "600px",
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+  image: {
+    width: "100%",
+    maxWidth: "100%",
+    height: "auto",
+    borderRadius: "10px",
+    marginBottom: "1rem",
+  },
+  previewText: {
+    fontSize: "1rem",
+    color: "#555",
+    lineHeight: "1.6",
+  },
   buttonGroup: {
     marginTop: "2rem",
     display: "flex",
@@ -64,7 +96,7 @@ const styles = {
     fontSize: "1rem",
     width: "200px",
     textAlign: "center",
-  }
+  },
 };
 
 export default Home;

@@ -61,6 +61,28 @@ function Login() {
       matchedSub || null;
 
     if (matched) {
+      // ✅ Check for pending quiz record
+      const pending = JSON.parse(localStorage.getItem("pendingRecord"));
+      if (pending && matched.role === "user") {
+        // Load all users
+        const users = JSON.parse(localStorage.getItem("users")) || [];
+        const updatedUsers = users.map((u) => {
+          if (u.email === matched.email) {
+            const updatedUser = {
+              ...u,
+              quizRecords: [...(u.quizRecords || []), pending],
+            };
+            // Update logged in user data
+            localStorage.setItem("user", JSON.stringify(updatedUser));
+            return updatedUser;
+          }
+          return u;
+        });
+        localStorage.setItem("users", JSON.stringify(updatedUsers));
+        localStorage.removeItem("pendingRecord");
+        matched.quizRecords = [...(matched.quizRecords || []), pending];
+      }
+
       localStorage.setItem("loggedInUser", JSON.stringify(matched));
       if (rememberMe) {
         localStorage.setItem("rememberedUser", JSON.stringify({ identifier, rememberMe }));
@@ -148,7 +170,7 @@ function Login() {
   );
 }
 
-// Responsive styles
+// Styles
 const styles = {
   container: {
     maxWidth: "400px",

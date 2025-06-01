@@ -1,106 +1,109 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import TopNav from "../components/TopNav";
+import defaultQuestions from "../data/questions";
 
 function Quiz() {
   const navigate = useNavigate();
-  const [selected, setSelected] = useState("");
+  const [questions, setQuestions] = useState([]);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [answers, setAnswers] = useState({}); // Store selected answers
 
-  const handleSubmit = () => {
-    if (!selected) return alert("Please select an answer.");
+  // Initialize questions once on page load
+  useEffect(() => {
+    let stored = JSON.parse(localStorage.getItem("questionBank") || "[]");
 
-    const isCorrect = selected === "b";
-    const score = isCorrect ? 100 : 0;
-    const feedback = isCorrect ? "Correct!" : "Incorrect. The correct answer is 2.";
+    // Merge with default if needed
+    const usedText = new Set(stored.map(q => q.text));
+    const remaining = defaultQuestions.filter(q => !usedText.has(q.text));
+    const needed = 20 - stored.length;
 
-    // Save result for Result page
-    const result = {
-      title: "Simple Math Test",
-      score,
-      feedback,
-    };
+    const filler = needed > 0
+      ? remaining.sort(() => 0.5 - Math.random()).slice(0, needed)
+      : [];
 
-    localStorage.setItem("lastResult", JSON.stringify(result));
-    navigate("/result");
+    const combined = [...stored, ...filler]
+      .sort(() => 0.5 - Math.random()) // shuffle all
+      .slice(0, 20); // take exactly 20
+
+    setQuestions(combined);
+  }, []);
+
+  const current = questions[currentIndex];
+
+  const handleSelect = (value) => {
+    setAnswers({ ...answers, [currentIndex]: value });
+  };
+
+  const handleNext = () => {
+    if (!answers[currentIndex]) {
+      alert("Please select an answer.");
+      return;
+    }
+
+    if (currentIndex < questions.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+    } else {
+      // Prepare result and go to result page
+      const result = questions.map((q, i) => {
+        const selected = answers[i];
+        const correct = q.correct || (q.answer === "Yes" ? "a" : "b"); // support both formats
+        return {
+          question: q.text,
+          selected,
+          correct,
+          isCorrect: selected === correct
+        };
+      });
+      localStorage.setItem("quizResult", JSON.stringify(result));
+      navigate("/result");
+    }
+  };
+
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
+    }
   };
 
   return (
     <>
       <TopNav />
-      <div style={styles.container}>
-        <h2>Mini Quiz</h2>
-        <p><strong>Question:</strong> 1 + 1 = ?</p>
-
-        {/* Option A */}
-        <div style={styles.option}>
+      <div style={{ padding: "2rem" }}>
+        <h2>Q{currentIndex + 1}: {current?.text}</h2>
+        <div>
           <label>
             <input
               type="radio"
-              name="answer"
               value="a"
-              checked={selected === "a"}
-              onChange={() => setSelected("a")}
-              style={styles.radio}
+              checked={answers[currentIndex] === "a"}
+              onChange={() => handleSelect("a")}
             />
-            a. 1
+            {current?.optionA || "Yes"}
           </label>
-        </div>
-
-        {/* Option B */}
-        <div style={styles.option}>
+          <br />
           <label>
             <input
               type="radio"
-              name="answer"
               value="b"
-              checked={selected === "b"}
-              onChange={() => setSelected("b")}
-              style={styles.radio}
+              checked={answers[currentIndex] === "b"}
+              onChange={() => handleSelect("b")}
             />
-            b. 2
+            {current?.optionB || "No"}
           </label>
         </div>
 
-        <button onClick={handleSubmit} style={styles.button}>Submit</button>
+        <div style={{ marginTop: "1rem" }}>
+          <button onClick={handlePrev} disabled={currentIndex === 0}>
+            ⬅️ Previous
+          </button>
+          <button onClick={handleNext} style={{ marginLeft: "1rem" }}>
+            {currentIndex === questions.length - 1 ? "Finish" : "Next ➡️"}
+          </button>
+        </div>
       </div>
     </>
   );
 }
-
-// Responsive styling
-const styles = {
-  container: {
-    maxWidth: "500px",
-    margin: "2rem auto",
-    padding: "1.5rem",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    textAlign: "center",
-    backgroundColor: "#fff",
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)",
-  },
-  option: {
-    margin: "1rem 0",
-    fontSize: "1.1rem",
-    textAlign: "left",
-    paddingLeft: "1rem",
-  },
-  radio: {
-    marginRight: "0.5rem",
-    transform: "scale(1.2)",
-  },
-  button: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-    fontSize: "1rem",
-    borderRadius: "5px",
-    marginTop: "1rem",
-    width: "100%",
-    maxWidth: "250px",
-  },
-};
 
 export default Quiz;

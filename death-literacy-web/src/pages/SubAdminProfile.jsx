@@ -1,20 +1,28 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TopNav from "../components/TopNav";
+import jsPDF from "jspdf";
 
-// Utility function: export quiz records to CSV
-const exportToCSV = (quizzes, username) => {
-  const headers = ["Title", "Score", "Feedback"];
-  const rows = quizzes.map(q => [q.title, q.score, q.feedback].join(","));
-  const csvContent = [headers.join(","), ...rows].join("\n");
+// Utility function: export quiz records to PDF
+const exportToPDF = (quizzes, username) => {
+  const doc = new jsPDF();
+  doc.setFontSize(16);
+  doc.text(`${username}'s Quiz Records`, 20, 20);
+  doc.setFontSize(12);
 
-  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.setAttribute("download", `${username}_quiz_records.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  let y = 30;
+  quizzes.forEach((q, idx) => {
+    doc.text(`Quiz ${idx + 1}: ${q.title}`, 20, y);
+    doc.text(`Score: ${q.score}`, 20, y + 8);
+    doc.text(`Feedback: ${q.feedback}`, 20, y + 16);
+    y += 30;
+    if (y > 270) {
+      doc.addPage();
+      y = 20;
+    }
+  });
+
+  doc.save(`${username}_quiz_records.pdf`);
 };
 
 function SubAdminProfile() {
@@ -82,10 +90,10 @@ function SubAdminProfile() {
 
               {(foundUserData.quizRecords || []).length > 0 && (
                 <button
-                  onClick={() => exportToCSV(foundUserData.quizRecords, foundUserData.username)}
+                  onClick={() => exportToPDF(foundUserData.quizRecords, foundUserData.username)}
                   style={styles.downloadButton}
                 >
-                  📤 Download CSV
+                  📄 Download PDF
                 </button>
               )}
             </div>

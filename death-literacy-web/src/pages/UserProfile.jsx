@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TopNav from "../components/TopNav";
+import jsPDF from "jspdf";
 
 function UserProfile() {
   // Load user from localStorage
@@ -18,12 +19,12 @@ function UserProfile() {
     plan: "none"
   };
 
-  // Determine if subscription is expired
+  // Check subscription expiration
   const today = new Date().toISOString().split("T")[0];
   const isExpired = subscription.expires && today > subscription.expires;
   const displayStatus = isExpired ? "Expired" : subscription.status;
 
-  // Handle password change logic
+  // Update password with validation
   const handlePasswordChange = () => {
     if (oldPassword !== user.password) {
       setMessage("Incorrect current password.");
@@ -47,50 +48,49 @@ function UserProfile() {
     setConfirmPassword("");
   };
 
-  // Handle logout action
+  // Logout
   const handleLogout = () => {
     localStorage.removeItem("user");
     localStorage.removeItem("loggedInUser");
     navigate("/login");
   };
 
-  // Export a single quiz record to CSV
-  const exportSingleCSV = (username, email, record, index) => {
-    const headers = ["Username", "Email", "Quiz Title", "Score", "Feedback"];
-    const row = [username, email, record.title, record.score, record.feedback];
-    const csv = [headers.join(","), row.join(",")].join("\n");
-
-    const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.setAttribute("download", `quiz_result_${index + 1}.csv`);
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+  // Export a single quiz record to PDF
+  const exportSinglePDF = (username, email, record, index) => {
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text(`${username}'s Quiz Record`, 20, 20);
+    doc.setFontSize(12);
+    doc.text(`Email: ${email}`, 20, 30);
+    doc.text(`Title: ${record.title}`, 20, 40);
+    doc.text(`Score: ${record.score}`, 20, 50);
+    doc.text(`Feedback: ${record.feedback}`, 20, 60);
+    doc.save(`quiz_result_${index + 1}.pdf`);
   };
 
-  // Export all quiz records to CSV
-  const exportAllCSV = () => {
+  // Export all quiz records to PDF
+  const exportAllPDF = () => {
     if (quizRecords.length === 0) return;
 
-    const headers = ["Username", "Email", "Quiz Title", "Score", "Feedback"];
-    const rows = quizRecords.map(q => [
-      user.username,
-      user.email,
-      q.title,
-      q.score,
-      q.feedback
-    ].join(","));
+    const doc = new jsPDF();
+    doc.setFontSize(16);
+    doc.text(`${user.username}'s All Quiz Records`, 20, 20);
+    doc.setFontSize(12);
+    doc.text(`Email: ${user.email}`, 20, 30);
 
-    const csvContent = [headers.join(","), ...rows].join("\n");
+    let y = 40;
+    quizRecords.forEach((q, idx) => {
+      doc.text(`Quiz ${idx + 1}: ${q.title}`, 20, y);
+      doc.text(`Score: ${q.score}`, 20, y + 8);
+      doc.text(`Feedback: ${q.feedback}`, 20, y + 16);
+      y += 30;
+      if (y > 270) {
+        doc.addPage();
+        y = 20;
+      }
+    });
 
-    const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.setAttribute("download", "all_quiz_results.csv");
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    doc.save("all_quiz_results.pdf");
   };
 
   return (
@@ -99,11 +99,11 @@ function UserProfile() {
       <div style={styles.container}>
         <h2>User Profile</h2>
 
-        {/* Basic account information */}
+        {/* Account Information */}
         <p><strong>Email:</strong> {user.email}</p>
         <p><strong>Username:</strong> {user.username}</p>
 
-        {/* Subscription section */}
+        {/* Subscription Information */}
         <div style={styles.section}>
           <h3>Subscription</h3>
           <p>Status: {displayStatus}</p>
@@ -117,13 +117,13 @@ function UserProfile() {
           <Link to="/subscribe" style={styles.linkButton}>🔗 Go to Subscription Page</Link>
         </div>
 
-        {/* Quiz records section */}
+        {/* Quiz Records */}
         <div style={styles.section}>
           <h3>Your Quiz Records</h3>
           {quizRecords.length > 0 ? (
             <>
-              <button onClick={exportAllCSV} style={styles.exportAllButton}>
-                📥 Export All as CSV
+              <button onClick={exportAllPDF} style={styles.exportAllButton}>
+                📥 Export All as PDF
               </button>
               <ul style={styles.list}>
                 {quizRecords.map((q, idx) => (
@@ -134,7 +134,7 @@ function UserProfile() {
                       Feedback: {q.feedback}
                     </div>
                     <button
-                      onClick={() => exportSingleCSV(user.username, user.email, q, idx)}
+                      onClick={() => exportSinglePDF(user.username, user.email, q, idx)}
                       style={styles.exportBtn}
                     >
                       📤 Export
@@ -148,7 +148,7 @@ function UserProfile() {
           )}
         </div>
 
-        {/* Password update form */}
+        {/* Change Password */}
         <div style={styles.section}>
           <h3>Change Password</h3>
           <input
@@ -175,17 +175,17 @@ function UserProfile() {
           <button onClick={handlePasswordChange} style={styles.button}>Update Password</button>
         </div>
 
-        {/* Feedback message */}
+        {/* Status Message */}
         {message && <p style={styles.message}>{message}</p>}
 
-        {/* Logout button */}
+        {/* Logout */}
         <button onClick={handleLogout} style={styles.logoutButton}>🚪 Logout</button>
       </div>
     </>
   );
 }
 
-// Inline styles for layout and responsiveness
+// Inline styling
 const styles = {
   container: {
     maxWidth: "700px",

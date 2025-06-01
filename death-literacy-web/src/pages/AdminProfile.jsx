@@ -1,38 +1,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import TopNav from "../components/TopNav";
-
-// Export a single quiz record
-const exportSingleRecord = (username, email, record) => {
-  const headers = ["Username", "Email", "Quiz Title", "Score", "Feedback"];
-  const row = [username, email, record.title, record.score, record.feedback].join(",");
-  const csvContent = [headers.join(","), row].join("\n");
-
-  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.setAttribute("download", `${username}_quiz_record.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
-
-// Export all quiz records for a user
-const exportAllRecords = (username, email, quizzes) => {
-  const headers = ["Username", "Email", "Quiz Title", "Score", "Feedback"];
-  const rows = quizzes.map(q =>
-    [username, email, q.title, q.score, q.feedback].join(",")
-  );
-  const csvContent = [headers.join(","), ...rows].join("\n");
-
-  const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
-  const link = document.createElement("a");
-  link.href = URL.createObjectURL(blob);
-  link.setAttribute("download", `${username}_all_quiz_records.csv`);
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-};
+import { downloadQuizResultAsPDF } from "../utils/download"; // Import PDF export utility
 
 function AdminProfile() {
   const user = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -41,7 +10,7 @@ function AdminProfile() {
   const [searchUsername, setSearchUsername] = useState("");
   const [foundUserData, setFoundUserData] = useState(null);
 
-  // Handle username search
+  // Search for a user by username and load their quiz records
   const handleSearch = () => {
     const allUsers = [];
 
@@ -62,6 +31,7 @@ function AdminProfile() {
     }
   };
 
+  // Handle logout
   const handleLogout = () => {
     localStorage.removeItem("loggedInUser");
     navigate("/login");
@@ -74,7 +44,7 @@ function AdminProfile() {
         <h2>Admin Profile</h2>
         <p><strong>Logged in as:</strong> {user?.username} ({user?.role})</p>
 
-        {/* Search bar */}
+        {/* Search input and button */}
         <div style={styles.searchSection}>
           <input
             type="text"
@@ -86,7 +56,7 @@ function AdminProfile() {
           <button onClick={handleSearch} style={styles.button}>Search</button>
         </div>
 
-        {/* Quiz result panel */}
+        {/* Display user quiz records if found */}
         {foundUserData ? (
           <div style={styles.result}>
             <h3>User: {foundUserData.username}</h3>
@@ -98,28 +68,14 @@ function AdminProfile() {
                   Score: {q.score}<br />
                   Feedback: {q.feedback}<br />
                   <button
-                    onClick={() =>
-                      exportSingleRecord(foundUserData.username, foundUserData.email, q)
-                    }
+                    onClick={() => downloadQuizResultAsPDF(q, foundUserData.username)}
                     style={styles.exportBtn}
                   >
-                    📥 Export This
+                    📥 Download PDF
                   </button>
                 </li>
               ))}
             </ul>
-            <button
-              onClick={() =>
-                exportAllRecords(
-                  foundUserData.username,
-                  foundUserData.email,
-                  foundUserData.quizRecords
-                )
-              }
-              style={styles.exportBtn}
-            >
-              📤 Export All Records (CSV)
-            </button>
           </div>
         ) : (
           searchUsername && <p>No user found or no records.</p>
@@ -127,7 +83,7 @@ function AdminProfile() {
 
         <hr style={{ margin: "2rem 0" }} />
 
-        {/* Admin-only links */}
+        {/* Admin control links */}
         <div style={styles.links}>
           <Link to="/admin/questions">🧠 Manage Question Bank</Link><br />
           <Link to="/admin/data">📊 Export & Analyze User Data</Link><br />
@@ -142,7 +98,7 @@ function AdminProfile() {
   );
 }
 
-// Responsive styles
+// CSS-in-JS styling
 const styles = {
   container: {
     maxWidth: "700px",

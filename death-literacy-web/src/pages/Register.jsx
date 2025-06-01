@@ -40,12 +40,16 @@ function Register() {
       return;
     }
 
+    // If there's a quiz result pending from result page
+    const pending = JSON.parse(localStorage.getItem("pendingRecord"));
+    const quizRecords = pending ? [pending] : [];
+
     const userData = {
       email: email.trim(),
       username: username.trim(),
       password,
       role: "user",
-      quizRecords: [],
+      quizRecords,
       subscription: {
         status: "Inactive",
         expires: null,
@@ -56,6 +60,10 @@ function Register() {
     const updatedUsers = [...users, userData];
     localStorage.setItem("users", JSON.stringify(updatedUsers));
     localStorage.setItem("user", JSON.stringify(userData));
+
+    if (pending) {
+      localStorage.removeItem("pendingRecord");
+    }
 
     setError("");
     setMessage("Registration successful! Redirecting to login...");
@@ -118,7 +126,7 @@ function Register() {
   );
 }
 
-// Responsive styles
+// Styles
 const styles = {
   container: {
     maxWidth: "400px",

@@ -15,6 +15,7 @@ import Quiz from "./pages/Quiz";
 import Result from "./pages/Result";
 import Subscribe from "./pages/Subscribe";
 import Checkout from "./pages/Checkout";
+import ContactUs from "./pages/ContactUs"; // ✅ Import Contact Us page
 
 // Automatically create default super admin if missing
 const defaultAdmin = {
@@ -53,6 +54,7 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/subscribe" element={<Subscribe />} />
         <Route path="/checkout" element={<Checkout />} />
+        <Route path="/contact-us" element={<ContactUs />} /> {/* ✅ New route */}
 
         {/* Quiz System */}
         <Route path="/quiz" element={<Quiz />} />

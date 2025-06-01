@@ -11,6 +11,7 @@ function TopNav() {
     setActive(location.pathname);
   }, [location]);
 
+  // Handle profile navigation based on login state
   const handleProfileClick = () => {
     const user = JSON.parse(localStorage.getItem("loggedInUser"));
     if (!user) {
@@ -22,18 +23,31 @@ function TopNav() {
 
   return (
     <div style={styles.navbar}>
+      {/* Home navigation button */}
       <button
         onClick={() => navigate("/")}
         style={{ ...styles.button, ...(active === "/" ? styles.active : {}) }}
       >
         🏠 Home
       </button>
+
+      {/* Quiz navigation button */}
       <button
         onClick={() => navigate("/quiz")}
         style={{ ...styles.button, ...(active === "/quiz" ? styles.active : {}) }}
       >
         ❓ Quiz
       </button>
+
+      {/* Contact Us navigation button */}
+      <button
+        onClick={() => navigate("/contact-us")}
+        style={{ ...styles.button, ...(active === "/contact-us" ? styles.active : {}) }}
+      >
+        📮 Contact Us
+      </button>
+
+      {/* Profile navigation button */}
       <button
         onClick={handleProfileClick}
         style={{ ...styles.button, ...(active === "/profile" ? styles.active : {}) }}
