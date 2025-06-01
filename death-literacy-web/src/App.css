@@ -1,10 +1,64 @@
+/* ✅ Global layout settings */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
+  font-family: Arial, sans-serif;
+
+  /* Enforce light color scheme globally */
+  color-scheme: light;
+  background-color: #ffffff !important;
+  color: #000000 !important;
+}
+
+/* ✅ Root app container */
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
   text-align: center;
+  box-sizing: border-box;
+  background-color: #ffffff !important;
+  color: #000000 !important;
 }
 
+/* ✅ Card layout */
+.card {
+  width: 100%;
+  max-width: 100%;
+  padding: 2em;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  background-color: #ffffff;
+}
+
+/* ✅ Table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table th, table td {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* ✅ Button and input uniform sizing */
+button,
+input[type="submit"],
+input[type="button"],
+input,
+select {
+  font-size: 1rem;
+  padding: 0.6rem 1rem;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+/* ✅ Logo animation */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -17,26 +71,79 @@
 .logo.react:hover {
   filter: drop-shadow(0 0 2em #61dafbaa);
 }
-
 @keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
-
 @media (prefers-reduced-motion: no-preference) {
   a:nth-of-type(2) .logo {
     animation: logo-spin infinite 20s linear;
   }
 }
 
-.card {
-  padding: 2em;
-}
-
+/* ✅ Footnote text style */
 .read-the-docs {
   color: #888;
+}
+
+/* ✅ Responsive layout: tablet and below */
+@media (max-width: 768px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 0.6rem 1rem;
+  }
+
+  input,
+  select {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  table {
+    font-size: 0.9rem;
+    overflow-x: auto;
+    display: block;
+  }
+
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+}
+
+/* ✅ Enhanced navbar for small phones */
+@media (max-width: 600px) {
+  .navbar {
+    position: static !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    padding: 0.5rem;
+  }
+
+  .navbar button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  h1, h2, h3 {
+    font-size: 1.25rem;
+    word-break: break-word;
+  }
+
+  .button,
+  .linkButton {
+    width: 100%;
+    display: block;
+    text-align: center;
+  }
 }

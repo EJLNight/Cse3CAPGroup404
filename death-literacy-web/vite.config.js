@@ -1,7 +1,11 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
-// https://vite.dev/config/
 export default defineConfig({
+  base: '/Cse3CAPGroup404/',
   plugins: [react()],
-})
+  build: {
+    minify: false,
+    sourcemap: true
+  }
+});
