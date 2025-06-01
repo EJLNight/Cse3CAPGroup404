@@ -9305,12 +9305,12 @@ function TopNav() {
       navigate("/profile");
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$e.navbar, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.navbar, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
         onClick: () => navigate("/"),
-        style: { ...styles$e.button, ...active === "/" ? styles$e.active : {} },
+        style: { ...styles$c.button, ...active === "/" ? styles$c.active : {} },
         children: "🏠 Home"
       }
     ),
@@ -9318,7 +9318,7 @@ function TopNav() {
       "button",
       {
         onClick: () => navigate("/quiz"),
-        style: { ...styles$e.button, ...active === "/quiz" ? styles$e.active : {} },
+        style: { ...styles$c.button, ...active === "/quiz" ? styles$c.active : {} },
         children: "❓ Quiz"
       }
     ),
@@ -9326,13 +9326,13 @@ function TopNav() {
       "button",
       {
         onClick: handleProfileClick,
-        style: { ...styles$e.button, ...active === "/profile" ? styles$e.active : {} },
+        style: { ...styles$c.button, ...active === "/profile" ? styles$c.active : {} },
         children: "👤 Profile"
       }
     )
   ] });
 }
-const styles$e = {
+const styles$c = {
   navbar: {
     position: "absolute",
     top: "1rem",
@@ -9367,17 +9367,17 @@ const styles$e = {
 function Home() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$d.wrapper, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles$d.title, children: "Welcome to the Death Literacy Platform" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$d.description, children: "This platform helps you assess your knowledge and improve your death literacy skills." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$d.buttonGroup, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$d.primary, children: "Start Quiz" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$d.secondary, children: "Login / Register" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.wrapper, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles$b.title, children: "Welcome to the Death Literacy Platform" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.description, children: "This platform helps you assess your knowledge and improve your death literacy skills." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.buttonGroup, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$b.primary, children: "Start Quiz" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$b.secondary, children: "Login / Register" })
       ] })
     ] })
   ] });
 }
-const styles$d = {
+const styles$b = {
   wrapper: {
     textAlign: "center",
     marginTop: "4rem",
@@ -9478,9 +9478,9 @@ function Login() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Login" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleLogin, style: styles$c.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleLogin, style: styles$a.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9489,13 +9489,13 @@ function Login() {
             value: identifier,
             onChange: (e) => setIdentifier(e.target.value),
             style: {
-              ...styles$c.input,
+              ...styles$a.input,
               borderColor: inputError ? "red" : "#ccc"
             },
             required: true
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.passwordContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.passwordContainer, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
@@ -9504,7 +9504,7 @@ function Login() {
               value: password,
               onChange: (e) => setPassword(e.target.value),
               style: {
-                ...styles$c.input,
+                ...styles$a.input,
                 borderColor: inputError ? "red" : "#ccc",
                 flex: 1
               },
@@ -9516,12 +9516,12 @@ function Login() {
             {
               type: "button",
               onClick: () => setShowPassword(!showPassword),
-              style: styles$c.toggleButton,
+              style: styles$a.toggleButton,
               children: showPassword ? "🙈 Hide" : "👁️ Show"
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.checkboxContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.checkboxContainer, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
@@ -9532,10 +9532,10 @@ function Login() {
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { marginLeft: "0.5rem" }, children: "Remember me" })
         ] }),
-        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$c.error, children: error }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$c.button, children: "Login" })
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.error, children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$a.button, children: "Login" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "Forgot your password? ",
           /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/forgot-password", children: "Click here" })
@@ -9552,7 +9552,7 @@ function Login() {
     ] })
   ] });
 }
-const styles$c = {
+const styles$a = {
   container: {
     maxWidth: "400px",
     margin: "3rem auto",
@@ -9665,9 +9665,9 @@ function Register() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Register" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleRegister, style: styles$b.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleRegister, style: styles$9.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9675,7 +9675,7 @@ function Register() {
             placeholder: "Username",
             value: username,
             onChange: (e) => setUsername(e.target.value),
-            style: styles$b.input,
+            style: styles$9.input,
             required: true
           }
         ),
@@ -9686,7 +9686,7 @@ function Register() {
             placeholder: "Email",
             value: email,
             onChange: (e) => setEmail(e.target.value),
-            style: styles$b.input,
+            style: styles$9.input,
             required: true
           }
         ),
@@ -9697,7 +9697,7 @@ function Register() {
             placeholder: "Password (letters and numbers only)",
             value: password,
             onChange: (e) => setPassword(e.target.value),
-            style: styles$b.input,
+            style: styles$9.input,
             required: true
           }
         ),
@@ -9708,22 +9708,22 @@ function Register() {
             placeholder: "Confirm Password",
             value: confirmPassword,
             onChange: (e) => setConfirmPassword(e.target.value),
-            style: styles$b.input,
+            style: styles$9.input,
             required: true
           }
         ),
-        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.error, children: error }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$b.button, children: "Register" })
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.error, children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$9.button, children: "Register" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.success, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$b.linkText, children: [
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.success, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$9.linkText, children: [
         "Already have an account? ",
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "Login" })
       ] })
     ] })
   ] });
 }
-const styles$b = {
+const styles$9 = {
   container: {
     maxWidth: "400px",
     margin: "2rem auto",
@@ -9777,9 +9777,9 @@ function ForgotPassword() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$a.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$8.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Forgot Password" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, style: styles$a.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, style: styles$8.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9787,18 +9787,18 @@ function ForgotPassword() {
             placeholder: "Enter your registered email",
             value: email,
             onChange: (e) => setEmail(e.target.value),
-            style: styles$a.input,
+            style: styles$8.input,
             required: true
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$a.button, children: "Send Reset Link" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$8.button, children: "Send Reset Link" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.message, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.linkText, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "← Back to Login" }) })
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.message, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.linkText, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "← Back to Login" }) })
     ] }) })
   ] });
 }
-const styles$a = {
+const styles$8 = {
   wrapper: {
     padding: "1rem"
   },
@@ -9903,11 +9903,11 @@ function CreateSubAdmin() {
   const totalPages = Math.ceil(admins.length / adminsPerPage);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$9.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Create Sub-Admin Account" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", style: styles$9.link, children: "← Back to Admin Profile" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCreate, style: styles$9.createButton, children: "➕ Create Sub-Admin" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$9.table, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", style: styles$7.link, children: "← Back to Admin Profile" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCreate, style: styles$7.createButton, children: "➕ Create Sub-Admin" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$7.table, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Username" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Email" }),
@@ -9921,17 +9921,17 @@ function CreateSubAdmin() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: admin.status }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: admin.password }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => toggleStatus(admin.id), style: styles$9.actionBtn, children: admin.status === "active" ? "❄ Freeze" : "✅ Unfreeze" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(admin.id), style: styles$9.deleteBtn, children: "❌ Delete" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => toggleStatus(admin.id), style: styles$7.actionBtn, children: admin.status === "active" ? "❄ Freeze" : "✅ Unfreeze" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(admin.id), style: styles$7.deleteBtn, children: "❌ Delete" })
           ] })
         ] }, admin.id)) })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$9.pagination, children: Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.pagination, children: Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setCurrentPage(p),
           style: {
-            ...styles$9.pageBtn,
+            ...styles$7.pageBtn,
             backgroundColor: currentPage === p ? "#007bff" : "#eee",
             color: currentPage === p ? "#fff" : "#000"
           },
@@ -9942,7 +9942,7 @@ function CreateSubAdmin() {
     ] }) })
   ] });
 }
-const styles$9 = {
+const styles$7 = {
   wrapper: {
     padding: "1rem"
   },
@@ -10055,7 +10055,7 @@ function AdminProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Admin Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Logged in as:" }),
@@ -10065,7 +10065,7 @@ function AdminProfile() {
         user == null ? void 0 : user.role,
         ")"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.searchSection, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.searchSection, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -10073,12 +10073,12 @@ function AdminProfile() {
             placeholder: "Search user by username",
             value: searchUsername,
             onChange: (e) => setSearchUsername(e.target.value),
-            style: styles$8.input
+            style: styles$6.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$8.button, children: "Search" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$6.button, children: "Search" })
       ] }),
-      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.result, children: [
+      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.result, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
           "User: ",
           foundUserData.username
@@ -10101,7 +10101,7 @@ function AdminProfile() {
             "button",
             {
               onClick: () => exportSingleRecord(foundUserData.username, foundUserData.email, q),
-              style: styles$8.exportBtn,
+              style: styles$6.exportBtn,
               children: "📥 Export This"
             }
           )
@@ -10114,24 +10114,24 @@ function AdminProfile() {
               foundUserData.email,
               foundUserData.quizRecords
             ),
-            style: styles$8.exportBtn,
+            style: styles$6.exportBtn,
             children: "📤 Export All Records (CSV)"
           }
         )
       ] }) : searchUsername && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No user found or no records." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { style: { margin: "2rem 0" } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/questions", children: "🧠 Manage Question Bank" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/data", children: "📊 Export & Analyze User Data" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         (user == null ? void 0 : user.username) === "admin" && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/create-admin", children: "👤 Create Sub-Admin Account" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$8.logoutButton, children: "🚪 Logout" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$6.logoutButton, children: "🚪 Logout" })
     ] })
   ] });
 }
-const styles$8 = {
+const styles$6 = {
   container: {
     maxWidth: "700px",
     margin: "2rem auto",
@@ -10226,7 +10226,7 @@ function SubAdminProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Sub-Admin Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Logged in as:" }),
@@ -10236,7 +10236,7 @@ function SubAdminProfile() {
         user == null ? void 0 : user.role,
         ")"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.searchSection, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.searchSection, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -10244,12 +10244,12 @@ function SubAdminProfile() {
             placeholder: "Search user by username",
             value: searchUsername,
             onChange: (e) => setSearchUsername(e.target.value),
-            style: styles$7.input
+            style: styles$5.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$7.button, children: "Search" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$5.button, children: "Search" })
       ] }),
-      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.result, children: [
+      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.result, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
           "User: ",
           foundUserData.username
@@ -10267,23 +10267,23 @@ function SubAdminProfile() {
           "button",
           {
             onClick: () => exportToCSV$1(foundUserData.quizRecords, foundUserData.username),
-            style: styles$7.downloadButton,
+            style: styles$5.downloadButton,
             children: "📤 Download CSV"
           }
         )
       ] }) : searchUsername && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No user found." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { style: { margin: "2rem 0" } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/questions", children: "🧠 Manage Question Bank" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/data", children: "📊 Export & Analyze User Data" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$7.logoutButton, children: "🚪 Logout" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$5.logoutButton, children: "🚪 Logout" })
     ] }) })
   ] });
 }
-const styles$7 = {
+const styles$5 = {
   container: {
     maxWidth: "700px",
     margin: "0 auto",
@@ -10420,7 +10420,7 @@ function UserProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "User Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
@@ -10432,7 +10432,7 @@ function UserProfile() {
         " ",
         user.username
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Subscription" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "Status: ",
@@ -10447,13 +10447,13 @@ function UserProfile() {
           subscription.plan
         ] }),
         isExpired && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "red", fontWeight: "bold" }, children: "Your subscription has expired. Please renew to regain access." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/subscribe", style: styles$6.linkButton, children: "🔗 Go to Subscription Page" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/subscribe", style: styles$4.linkButton, children: "🔗 Go to Subscription Page" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Your Quiz Records" }),
         quizRecords.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: exportAllCSV, style: styles$6.exportAllButton, children: "📥 Export All as CSV" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$6.list, children: quizRecords.map((q, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$6.recordItem, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: exportAllCSV, style: styles$4.exportAllButton, children: "📥 Export All as CSV" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$4.list, children: quizRecords.map((q, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$4.recordItem, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: q.title }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
@@ -10467,14 +10467,14 @@ function UserProfile() {
               "button",
               {
                 onClick: () => exportSingleCSV(user.username, user.email, q, idx),
-                style: styles$6.exportBtn,
+                style: styles$4.exportBtn,
                 children: "📤 Export"
               }
             )
           ] }, idx)) })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No quiz records found." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Change Password" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
@@ -10483,7 +10483,7 @@ function UserProfile() {
             placeholder: "Current Password",
             value: oldPassword,
             onChange: (e) => setOldPassword(e.target.value),
-            style: styles$6.input
+            style: styles$4.input
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10493,7 +10493,7 @@ function UserProfile() {
             placeholder: "New Password",
             value: newPassword,
             onChange: (e) => setNewPassword(e.target.value),
-            style: styles$6.input
+            style: styles$4.input
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -10503,17 +10503,17 @@ function UserProfile() {
             placeholder: "Confirm New Password",
             value: confirmPassword,
             onChange: (e) => setConfirmPassword(e.target.value),
-            style: styles$6.input
+            style: styles$4.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePasswordChange, style: styles$6.button, children: "Update Password" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePasswordChange, style: styles$4.button, children: "Update Password" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$6.message, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$6.logoutButton, children: "🚪 Logout" })
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$4.message, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$4.logoutButton, children: "🚪 Logout" })
     ] })
   ] });
 }
-const styles$6 = {
+const styles$4 = {
   container: {
     maxWidth: "700px",
     margin: "2rem auto",
@@ -10600,24 +10600,137 @@ const styles$6 = {
     fontSize: "0.95rem"
   }
 };
+const questions = [
+  // Advance Care Planning
+  { category: "Advance Care Planning", text: "Is an Advance Care Directive legally binding in Australia?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Can you change your Advance Care Directive after it's written?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Should you discuss your end-of-life wishes only when you're elderly?", answer: "No" },
+  { category: "Advance Care Planning", text: "Is a 'Do Not Resuscitate' (DNR) order the same as an Advance Care Directive?", answer: "No" },
+  { category: "Advance Care Planning", text: "Can family members override your Advance Care Directive?", answer: "No" },
+  { category: "Advance Care Planning", text: "Is it necessary to appoint a Medical Power of Attorney?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Should your GP be involved in Advance Care Planning?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Are Advance Care Directives only for people with terminal illnesses?", answer: "No" },
+  { category: "Advance Care Planning", text: "Can you include preferences about palliative care in your directive?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Is it too early to plan at age 30?", answer: "No" },
+  { category: "Advance Care Planning", text: "Do all states in Australia have the same laws about Advance Care Directives?", answer: "No" },
+  { category: "Advance Care Planning", text: "Should you review your directive every 5 years?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Can cultural beliefs influence Advance Care Planning?", answer: "Yes" },
+  { category: "Advance Care Planning", text: "Is an Advance Care Directive only about medical treatment?", answer: "No" },
+  { category: "Advance Care Planning", text: "Can you write an Advance Care Directive without a lawyer?", answer: "Yes" },
+  // Palliative Care & Medical Choices
+  { category: "Palliative Care & Medical Choices", text: "Is palliative care only for the last days of life?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Can palliative care include pain management?", answer: "Yes" },
+  { category: "Palliative Care & Medical Choices", text: "Does palliative care always mean giving up treatment?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Is euthanasia legal in all Australian states?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Can you request palliative care at home?", answer: "Yes" },
+  { category: "Palliative Care & Medical Choices", text: "Is hospice care the same as palliative care?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Should children be excluded from palliative care discussions?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Can palliative care include psychological support?", answer: "Yes" },
+  { category: "Palliative Care & Medical Choices", text: "Is morphine always used in end-of-life care?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Can you refuse palliative care if you choose?", answer: "Yes" },
+  { category: "Palliative Care & Medical Choices", text: "Are family members allowed to stay during palliative care?", answer: "Yes" },
+  { category: "Palliative Care & Medical Choices", text: "Is palliative care only for cancer patients?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Can you access palliative care while still pursuing curative treatment?", answer: "Yes" },
+  { category: "Palliative Care & Medical Choices", text: "Do all hospitals offer specialist palliative care?", answer: "No" },
+  { category: "Palliative Care & Medical Choices", text: "Is it okay to ask about life expectancy in palliative care?", answer: "Yes" },
+  // Funeral & After-Death Practicalities
+  { category: "Funeral & After-Death Practicalities", text: "Is embalming always required before burial?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Can you plan a funeral without a funeral director?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Are green burials legal in Australia?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Is cremation more expensive than burial?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Can you scatter ashes anywhere?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Should you prepay for a funeral?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Is a will the same as an Advance Care Directive?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Can you donate your body to science?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Are funeral costs covered by Medicare?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Can you write your own will without a lawyer?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Is a coffin mandatory for cremation?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Can family members wash and dress the deceased at home?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Are digital wills legally binding?", answer: "No" },
+  { category: "Funeral & After-Death Practicalities", text: "Should you include funeral wishes in your will?", answer: "Yes" },
+  { category: "Funeral & After-Death Practicalities", text: "Can you be buried on private property?", answer: "No" },
+  // Grief & Bereavement
+  { category: "Grief & Bereavement", text: "Is there a 'right' way to grieve?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Can grief cause physical symptoms?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Should you avoid talking about the deceased to avoid upsetting others?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Is it normal to feel angry after a loss?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Does grief always lessen with time?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Can children experience complicated grief?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Is it helpful to rush someone through grief?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Are men less likely to seek grief support?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Can pets trigger grief similar to human loss?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Is it okay to remove reminders of the deceased to cope?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Should you avoid crying in front of others?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Can anniversaries reactivate grief?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Is grief counseling only for severe cases?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Can social media be part of grieving?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Is it normal to feel relief after someone dies?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Should you compare your grief to others'?", answer: "No" },
+  { category: "Grief & Bereavement", text: "Can unresolved grief affect physical health?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Are there cultural differences in grieving?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Is it possible to grieve before someone dies?", answer: "Yes" },
+  { category: "Grief & Bereavement", text: "Can creative activities (art, writing) help with grief?", answer: "Yes" },
+  // Cultural, Legal & Ethical Issues
+  { category: "Cultural, Legal & Ethical Issues", text: "Are Aboriginal Australian death customs legally protected?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can religions prohibit autopsies?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is organ donation allowed in all religions?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Should you avoid discussing death with children?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is suicide decriminalized in Australia?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can you access bereavement leave for a friend's death?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is a death certificate required for cremation?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can you dispute a will?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Are digital assets (e.g., social media) part of estate planning?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is it illegal to die without a will?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can LGBTQ+ partners face extra challenges in bereavement?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is euthanasia the same as palliative sedation?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Are funeral rites different for stillborn babies?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can you be buried with personal items?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is grief leave paid in Australia?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Should you avoid humor when discussing death?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Are there death rituals for atheists?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can social media memorials replace traditional funerals?", answer: "Yes" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Is it disrespectful to question funeral costs?", answer: "No" },
+  { category: "Cultural, Legal & Ethical Issues", text: "Can you plan a funeral without religious elements?", answer: "Yes" },
+  // Myths & Misconceptions
+  { category: "Myths & Misconceptions", text: "Is death always painful?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Do all people see a 'light' before dying?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Should you avoid talking about death to avoid 'jinxing' it?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Is it true that children don't understand death?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Can you 'catch' grief from others?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Is dying at home less peaceful than in a hospital?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Do all cultures view death as sad?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Is it morbid to plan your own funeral?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Can you delay grief by staying busy?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Are near-death experiences proof of an afterlife?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Should you force someone to talk about their grief?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Is it true that time heals all wounds?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Are deathbed promises legally binding?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Can you predict the exact moment of death?", answer: "No" },
+  { category: "Myths & Misconceptions", text: "Is death literacy only for professionals?", answer: "No" }
+];
 function AdminQuestions() {
-  const [questions, setQuestions] = reactExports.useState([]);
+  const [questions$1, setQuestions] = reactExports.useState([]);
   const [newQuestion, setNewQuestion] = reactExports.useState({
-    question: "",
+    text: "",
     optionA: "",
     optionB: "",
     correct: "a"
   });
   reactExports.useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("questionBank")) || [];
-    setQuestions(stored);
+    if (stored.length === 0) {
+      localStorage.setItem("questionBank", JSON.stringify(questions));
+      setQuestions(questions);
+    } else {
+      setQuestions(stored);
+    }
   }, []);
   const updateStorage = (list) => {
     setQuestions(list);
     localStorage.setItem("questionBank", JSON.stringify(list));
   };
   const handleAdd = () => {
-    if (!newQuestion.question || !newQuestion.optionA || !newQuestion.optionB) {
+    if (!newQuestion.text || !newQuestion.optionA || !newQuestion.optionB) {
       alert("All fields are required.");
       return;
     }
@@ -10625,208 +10738,69 @@ function AdminQuestions() {
       ...newQuestion,
       id: Date.now()
     };
-    const updated = [...questions, newEntry];
-    updateStorage(updated);
-    setNewQuestion({ question: "", optionA: "", optionB: "", correct: "a" });
+    updateStorage([...questions$1, newEntry]);
+    setNewQuestion({ text: "", optionA: "", optionB: "", correct: "a" });
   };
   const handleDelete = (id) => {
-    const filtered = questions.filter((q) => q.id !== id);
+    const filtered = questions$1.filter((q) => q.id !== id);
     updateStorage(filtered);
-  };
-  const handleExportJSON = () => {
-    const blob = new Blob([JSON.stringify(questions, null, 2)], { type: "application/json" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "questionBank.json";
-    link.click();
-  };
-  const handleExportCSV = () => {
-    const header = "Question,Option A,Option B,Correct Answer\n";
-    const rows = questions.map(
-      (q) => `"${q.question}","${q.optionA}","${q.optionB}","${q.correct}"`
-    );
-    const csv = header + rows.join("\n");
-    const blob = new Blob([csv], { type: "text/csv" });
-    const link = document.createElement("a");
-    link.href = URL.createObjectURL(blob);
-    link.download = "questionBank.csv";
-    link.click();
-  };
-  const handleImport = (event) => {
-    const file = event.target.files[0];
-    if (!file) return;
-    const reader = new FileReader();
-    const isCSV = file.name.endsWith(".csv");
-    reader.onload = (e) => {
-      try {
-        let imported = [];
-        if (isCSV) {
-          const lines = e.target.result.trim().split("\n").slice(1);
-          imported = lines.map((line) => {
-            const [question, optionA, optionB, correct] = line.split(",").map((x) => x.replace(/^"|"$/g, ""));
-            return { question, optionA, optionB, correct, id: Date.now() + Math.random() };
-          });
-        } else {
-          imported = JSON.parse(e.target.result).map((q) => ({ ...q, id: Date.now() + Math.random() }));
-        }
-        updateStorage([...questions, ...imported]);
-      } catch (err) {
-        alert("Import failed: Invalid file format.");
-      }
-    };
-    reader.readAsText(file);
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "2rem" }, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Manage Question Bank" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.form, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "text",
-            placeholder: "Question",
-            value: newQuestion.question,
-            onChange: (e) => setNewQuestion({ ...newQuestion, question: e.target.value }),
-            style: styles$5.input
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "text",
-            placeholder: "Option A",
-            value: newQuestion.optionA,
-            onChange: (e) => setNewQuestion({ ...newQuestion, optionA: e.target.value }),
-            style: styles$5.input
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "text",
-            placeholder: "Option B",
-            value: newQuestion.optionB,
-            onChange: (e) => setNewQuestion({ ...newQuestion, optionB: e.target.value }),
-            style: styles$5.input
-          }
-        ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
-          "Correct Answer:",
-          /* @__PURE__ */ jsxRuntimeExports.jsxs(
-            "select",
-            {
-              value: newQuestion.correct,
-              onChange: (e) => setNewQuestion({ ...newQuestion, correct: e.target.value }),
-              style: { marginLeft: "1rem", padding: "0.5rem", fontSize: "1rem" },
-              children: [
-                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "a", children: "A" }),
-                /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "b", children: "B" })
-              ]
-            }
-          )
-        ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleAdd, style: styles$5.button, children: "Add Question" })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.toolRow, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleExportJSON, style: styles$5.exportButton, children: "📤 Export JSON" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleExportCSV, style: styles$5.exportButton, children: "📤 Export CSV" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { style: { marginLeft: "1rem", fontWeight: "bold" }, children: [
-          "📥 Import:",
-          /* @__PURE__ */ jsxRuntimeExports.jsx(
-            "input",
-            {
-              type: "file",
-              accept: ".json,.csv",
-              onChange: handleImport,
-              style: { marginLeft: "0.5rem" }
-            }
-          )
-        ] })
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: { marginTop: "2rem" }, children: "Current Questions" }),
-      questions.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: { paddingLeft: "0" }, children: questions.map((q) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$5.item, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: q.question }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        "A: ",
-        q.optionA,
-        " | B: ",
-        q.optionB,
-        " ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        "✅ Correct: ",
-        q.correct.toUpperCase(),
-        " ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(q.id), style: styles$5.delete, children: "🗑 Delete" })
-      ] }, q.id)) }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No questions added yet." })
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          placeholder: "Question",
+          value: newQuestion.text,
+          onChange: (e) => setNewQuestion({ ...newQuestion, text: e.target.value })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          placeholder: "Option A",
+          value: newQuestion.optionA,
+          onChange: (e) => setNewQuestion({ ...newQuestion, optionA: e.target.value })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "input",
+        {
+          placeholder: "Option B",
+          value: newQuestion.optionB,
+          onChange: (e) => setNewQuestion({ ...newQuestion, optionB: e.target.value })
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs(
+        "select",
+        {
+          value: newQuestion.correct,
+          onChange: (e) => setNewQuestion({ ...newQuestion, correct: e.target.value }),
+          children: [
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "a", children: "A" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("option", { value: "b", children: "B" })
+          ]
+        }
+      ),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleAdd, children: "Add Question" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { children: questions$1.map((q) => {
+        var _a;
+        return /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+          q.text,
+          " (A: ",
+          q.optionA,
+          " | B: ",
+          q.optionB,
+          ") ✅: ",
+          (_a = q.correct) == null ? void 0 : _a.toUpperCase(),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(q.id), children: "Delete" })
+        ] }, q.id);
+      }) })
     ] })
   ] });
 }
-const styles$5 = {
-  container: {
-    maxWidth: "800px",
-    margin: "2rem auto",
-    padding: "2rem",
-    border: "1px solid #ccc",
-    borderRadius: "10px"
-  },
-  form: {
-    display: "flex",
-    flexDirection: "column",
-    gap: "0.75rem",
-    marginBottom: "1rem"
-  },
-  input: {
-    padding: "0.5rem",
-    fontSize: "1rem",
-    width: "100%"
-  },
-  button: {
-    padding: "0.5rem 1rem",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-    fontSize: "1rem",
-    width: "fit-content"
-  },
-  exportButton: {
-    padding: "0.5rem 1rem",
-    backgroundColor: "#17a2b8",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-    fontSize: "0.95rem",
-    marginRight: "0.5rem",
-    marginTop: "0.5rem"
-  },
-  toolRow: {
-    display: "flex",
-    flexWrap: "wrap",
-    alignItems: "center",
-    gap: "0.5rem",
-    marginTop: "1rem",
-    marginBottom: "1rem"
-  },
-  item: {
-    listStyle: "none",
-    marginBottom: "1rem",
-    padding: "1rem",
-    backgroundColor: "#f9f9f9",
-    borderRadius: "5px",
-    border: "1px solid #ccc"
-  },
-  delete: {
-    marginTop: "0.5rem",
-    backgroundColor: "#dc3545",
-    color: "#fff",
-    border: "none",
-    padding: "0.4rem 0.8rem",
-    cursor: "pointer",
-    fontSize: "0.9rem"
-  }
-};
 const exportToCSV = (data, filename = "quiz_data.csv") => {
   const headers = ["Username", "Email", "Quiz Title", "Score", "Feedback"];
   const rows = data.map(
@@ -10879,9 +10853,9 @@ function AdminData() {
   const averageScore = filtered.length > 0 ? (filtered.reduce((sum, r) => sum + r.score, 0) / filtered.length).toFixed(2) : "N/A";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Export & Analyze Quiz Data" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.controls, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.controls, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -10889,11 +10863,11 @@ function AdminData() {
             placeholder: "Filter by username",
             value: filter,
             onChange: (e) => setFilter(e.target.value),
-            style: styles$4.input
+            style: styles$3.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToCSV(filtered), style: styles$4.exportButton, children: "📤 Export CSV" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToJSON(filtered), style: styles$4.exportButton, children: "📥 Export JSON" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToCSV(filtered), style: styles$3.exportButton, children: "📤 Export CSV" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToJSON(filtered), style: styles$3.exportButton, children: "📥 Export JSON" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Average Score:" }),
@@ -10904,7 +10878,7 @@ function AdminData() {
         " ",
         filtered.length
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$4.tableWrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$4.table, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$3.tableWrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$3.table, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Username" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Email" }),
@@ -10923,7 +10897,7 @@ function AdminData() {
     ] })
   ] });
 }
-const styles$4 = {
+const styles$3 = {
   container: {
     maxWidth: "1000px",
     margin: "2rem auto",
@@ -10965,94 +10939,70 @@ const styles$4 = {
 };
 function Quiz() {
   const navigate = useNavigate();
+  let stored = JSON.parse(localStorage.getItem("questionBank") || "[]");
+  if (stored.length < 20) {
+    const usedSet = new Set(stored.map((q) => q.text));
+    const remaining = questions.filter((q) => !usedSet.has(q.text));
+    const needed = 20 - stored.length;
+    const filler = remaining.sort(() => 0.5 - Math.random()).slice(0, needed);
+    stored = [...stored, ...filler];
+  }
+  const questions$1 = stored.sort(() => 0.5 - Math.random()).slice(0, 20);
+  const [currentIndex, setCurrentIndex] = reactExports.useState(0);
   const [selected, setSelected] = reactExports.useState("");
+  const current = questions$1[currentIndex];
   const handleSubmit = () => {
-    if (!selected) return alert("Please select an answer.");
-    const isCorrect = selected === "b";
-    const score = isCorrect ? 100 : 0;
-    const feedback = isCorrect ? "Correct!" : "Incorrect. The correct answer is 2.";
-    const result = {
-      title: "Simple Math Test",
-      score,
-      feedback
-    };
-    localStorage.setItem("lastResult", JSON.stringify(result));
-    navigate("/result");
+    if (!selected) {
+      alert("Please select an answer.");
+      return;
+    }
+    if (currentIndex < questions$1.length - 1) {
+      setCurrentIndex(currentIndex + 1);
+      setSelected("");
+    } else {
+      navigate("/result");
+    }
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.container, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Mini Quiz" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Question:" }),
-        " 1 + 1 = ?"
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "2rem" }, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { children: [
+        "Q",
+        currentIndex + 1,
+        ": ",
+        current.text
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$3.option, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "radio",
-            name: "answer",
-            value: "a",
-            checked: selected === "a",
-            onChange: () => setSelected("a"),
-            style: styles$3.radio
-          }
-        ),
-        "a. 1"
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$3.option, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(
-          "input",
-          {
-            type: "radio",
-            name: "answer",
-            value: "b",
-            checked: selected === "b",
-            onChange: () => setSelected("b"),
-            style: styles$3.radio
-          }
-        ),
-        "b. 2"
-      ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSubmit, style: styles$3.button, children: "Submit" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "radio",
+              value: "a",
+              checked: selected === "a",
+              onChange: () => setSelected("a")
+            }
+          ),
+          current.optionA || "Yes"
+        ] }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx(
+            "input",
+            {
+              type: "radio",
+              value: "b",
+              checked: selected === "b",
+              onChange: () => setSelected("b")
+            }
+          ),
+          current.optionB || "No"
+        ] })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSubmit, style: { marginTop: "1rem" }, children: "Next" })
     ] })
   ] });
 }
-const styles$3 = {
-  container: {
-    maxWidth: "500px",
-    margin: "2rem auto",
-    padding: "1.5rem",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    textAlign: "center",
-    backgroundColor: "#fff",
-    boxShadow: "0 2px 8px rgba(0, 0, 0, 0.05)"
-  },
-  option: {
-    margin: "1rem 0",
-    fontSize: "1.1rem",
-    textAlign: "left",
-    paddingLeft: "1rem"
-  },
-  radio: {
-    marginRight: "0.5rem",
-    transform: "scale(1.2)"
-  },
-  button: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#007bff",
-    color: "#fff",
-    border: "none",
-    cursor: "pointer",
-    fontSize: "1rem",
-    borderRadius: "5px",
-    marginTop: "1rem",
-    width: "100%",
-    maxWidth: "250px"
-  }
-};
 function Result() {
   const navigate = useNavigate();
   const [result, setResult] = reactExports.useState(null);
@@ -11396,4 +11346,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // React.StrictMode helps identify potential issues in development
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-j4klyqlG.js.map
+//# sourceMappingURL=index-Df-1HLi7.js.map
