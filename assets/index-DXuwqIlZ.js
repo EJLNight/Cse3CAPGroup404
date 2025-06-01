@@ -9391,10 +9391,7 @@ function Home() {
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.previewText, children: "Test your knowledge about end-of-life, palliative care, and more. This quiz will help you understand important aspects of death literacy and advance care planning." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.buttonGroup, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$b.primary, children: "Start Quiz" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$b.secondary, children: "Login / Register" })
-      ] })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$b.buttonGroup, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$b.primary, children: "Start Quiz" }) })
     ] })
   ] });
 }
@@ -9442,16 +9439,6 @@ const styles$b = {
   primary: {
     padding: "0.75rem 1.5rem",
     backgroundColor: "#007bff",
-    color: "#fff",
-    textDecoration: "none",
-    borderRadius: "5px",
-    fontSize: "1rem",
-    width: "200px",
-    textAlign: "center"
-  },
-  secondary: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#6c757d",
     color: "#fff",
     textDecoration: "none",
     borderRadius: "5px",
@@ -17623,7 +17610,7 @@ function(t2) {
  */
 function(t2) {
   function e() {
-    return (n.canvg ? Promise.resolve(n.canvg) : __vitePreload(() => import("./index.es-CU8GiwcC.js"), true ? [] : void 0)).catch(function(t3) {
+    return (n.canvg ? Promise.resolve(n.canvg) : __vitePreload(() => import("./index.es-CdNy5XZF.js"), true ? [] : void 0)).catch(function(t3) {
       return Promise.reject(new Error("Could not load canvg: " + t3));
     }).then(function(t3) {
       return t3.default ? t3.default : t3;
@@ -19777,4 +19764,4 @@ export {
   commonjsGlobal as c,
   getDefaultExportFromCjs as g
 };
-//# sourceMappingURL=index-Cn3sMryj.js.map
+//# sourceMappingURL=index-DXuwqIlZ.js.map
