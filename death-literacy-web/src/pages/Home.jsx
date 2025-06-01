@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import TopNav from "../components/TopNav"; // Global top navigation
-import deathLiteracyImg from "../assets/resources/death-literacy.png"; // ✅ Image import
+import deathLiteracyImg from "../assets/resources/death-literacy.png"; // Image import
 
 function Home() {
   return (
@@ -12,7 +12,7 @@ function Home() {
           This platform helps you assess your knowledge and improve your death literacy skills.
         </p>
 
-        {/* ✅ Added visual + explanation block from the resource site */}
+        {/* Image + short quiz intro block */}
         <div style={styles.previewBlock}>
           <img
             src={deathLiteracyImg}
@@ -25,10 +25,9 @@ function Home() {
           </p>
         </div>
 
-        {/* Navigation Buttons */}
+        {/* Only Start Quiz button remains */}
         <div style={styles.buttonGroup}>
           <Link to="/quiz" style={styles.primary}>Start Quiz</Link>
-          <Link to="/login" style={styles.secondary}>Login / Register</Link>
         </div>
       </div>
     </>
@@ -80,16 +79,6 @@ const styles = {
   primary: {
     padding: "0.75rem 1.5rem",
     backgroundColor: "#007bff",
-    color: "#fff",
-    textDecoration: "none",
-    borderRadius: "5px",
-    fontSize: "1rem",
-    width: "200px",
-    textAlign: "center",
-  },
-  secondary: {
-    padding: "0.75rem 1.5rem",
-    backgroundColor: "#6c757d",
     color: "#fff",
     textDecoration: "none",
     borderRadius: "5px",
