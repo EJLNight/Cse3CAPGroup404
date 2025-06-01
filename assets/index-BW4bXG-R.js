@@ -10939,37 +10939,47 @@ const styles$2 = {
 };
 function Quiz() {
   const navigate = useNavigate();
-  let stored = JSON.parse(localStorage.getItem("questionBank") || "[]");
-  if (stored.length < 20) {
-    const usedSet = new Set(stored.map((q) => q.text));
-    const remaining = questions.filter((q) => !usedSet.has(q.text));
-    const filler = remaining.sort(() => 0.5 - Math.random()).slice(0, 20 - stored.length);
-    stored = [...stored, ...filler];
-  }
-  const questions$1 = stored.sort(() => 0.5 - Math.random()).slice(0, 20);
+  const [questions$1, setQuestions] = reactExports.useState([]);
   const [currentIndex, setCurrentIndex] = reactExports.useState(0);
-  const [selected, setSelected] = reactExports.useState("");
-  const [answers, setAnswers] = reactExports.useState([]);
+  const [answers, setAnswers] = reactExports.useState({});
+  reactExports.useEffect(() => {
+    let stored = JSON.parse(localStorage.getItem("questionBank") || "[]");
+    const usedText = new Set(stored.map((q) => q.text));
+    const remaining = questions.filter((q) => !usedText.has(q.text));
+    const needed = 20 - stored.length;
+    const filler = needed > 0 ? remaining.sort(() => 0.5 - Math.random()).slice(0, needed) : [];
+    const combined = [...stored, ...filler].sort(() => 0.5 - Math.random()).slice(0, 20);
+    setQuestions(combined);
+  }, []);
   const current = questions$1[currentIndex];
-  const handleSubmit = () => {
-    if (!selected) {
+  const handleSelect = (value) => {
+    setAnswers({ ...answers, [currentIndex]: value });
+  };
+  const handleNext = () => {
+    if (!answers[currentIndex]) {
       alert("Please select an answer.");
       return;
     }
-    const record = {
-      question: current.text,
-      correct: (current.answer || current.correct || "").toLowerCase(),
-      selected,
-      isCorrect: selected === (current.answer || current.correct || "").toLowerCase()
-    };
-    const updatedAnswers = [...answers, record];
     if (currentIndex < questions$1.length - 1) {
-      setAnswers(updatedAnswers);
       setCurrentIndex(currentIndex + 1);
-      setSelected("");
     } else {
-      localStorage.setItem("quizResult", JSON.stringify(updatedAnswers));
+      const result = questions$1.map((q, i) => {
+        const selected = answers[i];
+        const correct = q.correct || (q.answer === "Yes" ? "a" : "b");
+        return {
+          question: q.text,
+          selected,
+          correct,
+          isCorrect: selected === correct
+        };
+      });
+      localStorage.setItem("quizResult", JSON.stringify(result));
       navigate("/result");
+    }
+  };
+  const handlePrev = () => {
+    if (currentIndex > 0) {
+      setCurrentIndex(currentIndex - 1);
     }
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
@@ -10979,7 +10989,7 @@ function Quiz() {
         "Q",
         currentIndex + 1,
         ": ",
-        current.text
+        current == null ? void 0 : current.text
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
@@ -10988,11 +10998,11 @@ function Quiz() {
             {
               type: "radio",
               value: "a",
-              checked: selected === "a",
-              onChange: () => setSelected("a")
+              checked: answers[currentIndex] === "a",
+              onChange: () => handleSelect("a")
             }
           ),
-          current.optionA || "Yes"
+          (current == null ? void 0 : current.optionA) || "Yes"
         ] }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("label", { children: [
@@ -11001,14 +11011,17 @@ function Quiz() {
             {
               type: "radio",
               value: "b",
-              checked: selected === "b",
-              onChange: () => setSelected("b")
+              checked: answers[currentIndex] === "b",
+              onChange: () => handleSelect("b")
             }
           ),
-          current.optionB || "No"
+          (current == null ? void 0 : current.optionB) || "No"
         ] })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSubmit, style: { marginTop: "1rem" }, children: "Next" })
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { marginTop: "1rem" }, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePrev, disabled: currentIndex === 0, children: "⬅️ Previous" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleNext, style: { marginLeft: "1rem" }, children: currentIndex === questions$1.length - 1 ? "Finish" : "Next ➡️" })
+      ] })
     ] })
   ] });
 }
@@ -11016,12 +11029,21 @@ function Result() {
   const [result, setResult] = reactExports.useState([]);
   const [score, setScore] = reactExports.useState(0);
   const [feedback, setFeedback] = reactExports.useState("");
+  const printRef = reactExports.useRef();
   reactExports.useEffect(() => {
     const stored = JSON.parse(localStorage.getItem("quizResult")) || [];
     setResult(stored);
     const correctCount = stored.filter((q) => q.isCorrect).length;
     setScore(correctCount);
     setFeedback(generateFakeFeedback(correctCount));
+    const history = JSON.parse(localStorage.getItem("quizHistory") || "[]");
+    const newRecord = {
+      timestamp: (/* @__PURE__ */ new Date()).toISOString(),
+      score: correctCount,
+      total: stored.length,
+      answers: stored
+    };
+    localStorage.setItem("quizHistory", JSON.stringify([...history, newRecord]));
   }, []);
   const generateFakeFeedback = (score2) => {
     if (score2 < 8) {
@@ -11034,9 +11056,19 @@ function Result() {
       return "Outstanding! Your death literacy knowledge is exceptional. You could be a death literacy advocate.";
     }
   };
+  const handleExportPDF = () => {
+    const content = printRef.current.innerHTML;
+    const win = window.open("", "", "width=800,height=600");
+    win.document.write(`
+      <html><head><title>Quiz Result</title></head>
+      <body>${content}</body></html>
+    `);
+    win.document.close();
+    win.print();
+  };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "2rem" }, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: { padding: "2rem" }, ref: printRef, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("h2", { children: [
         "Your Score: ",
         score,
@@ -11063,7 +11095,8 @@ function Result() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         q.isCorrect ? "✔️ Correct" : "❌ Incorrect"
       ] }, i)) })
-    ] })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleExportPDF, children: "📄 Download Result as PDF" }) })
   ] });
 }
 function Pricing() {
@@ -11322,4 +11355,4 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   // React.StrictMode helps identify potential issues in development
   /* @__PURE__ */ jsxRuntimeExports.jsx(React.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-CZmH0Xae.js.map
+//# sourceMappingURL=index-BW4bXG-R.js.map
