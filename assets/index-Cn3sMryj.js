@@ -9306,12 +9306,12 @@ function TopNav() {
       navigate("/profile");
     }
   };
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.navbar, children: [
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$c.navbar, children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
         onClick: () => navigate("/"),
-        style: { ...styles$b.button, ...active === "/" ? styles$b.active : {} },
+        style: { ...styles$c.button, ...active === "/" ? styles$c.active : {} },
         children: "🏠 Home"
       }
     ),
@@ -9319,21 +9319,29 @@ function TopNav() {
       "button",
       {
         onClick: () => navigate("/quiz"),
-        style: { ...styles$b.button, ...active === "/quiz" ? styles$b.active : {} },
+        style: { ...styles$c.button, ...active === "/quiz" ? styles$c.active : {} },
         children: "❓ Quiz"
       }
     ),
     /* @__PURE__ */ jsxRuntimeExports.jsx(
       "button",
       {
+        onClick: () => navigate("/contact-us"),
+        style: { ...styles$c.button, ...active === "/contact-us" ? styles$c.active : {} },
+        children: "📮 Contact Us"
+      }
+    ),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(
+      "button",
+      {
         onClick: handleProfileClick,
-        style: { ...styles$b.button, ...active === "/profile" ? styles$b.active : {} },
+        style: { ...styles$c.button, ...active === "/profile" ? styles$c.active : {} },
         children: "👤 Profile"
       }
     )
   ] });
 }
-const styles$b = {
+const styles$c = {
   navbar: {
     position: "absolute",
     top: "1rem",
@@ -9365,20 +9373,32 @@ const styles$b = {
     color: "#fff"
   }
 };
+const deathLiteracyImg = "/Cse3CAPGroup404/assets/death-literacy-DYPgTDaX.png";
 function Home() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.wrapper, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles$a.title, children: "Welcome to the Death Literacy Platform" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.description, children: "This platform helps you assess your knowledge and improve your death literacy skills." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.buttonGroup, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$a.primary, children: "Start Quiz" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$a.secondary, children: "Login / Register" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.wrapper, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { style: styles$b.title, children: "Welcome to the Death Literacy Platform" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.description, children: "This platform helps you assess your knowledge and improve your death literacy skills." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.previewBlock, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(
+          "img",
+          {
+            src: deathLiteracyImg,
+            alt: "What is Death Literacy?",
+            style: styles$b.image
+          }
+        ),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$b.previewText, children: "Test your knowledge about end-of-life, palliative care, and more. This quiz will help you understand important aspects of death literacy and advance care planning." })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$b.buttonGroup, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/quiz", style: styles$b.primary, children: "Start Quiz" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", style: styles$b.secondary, children: "Login / Register" })
       ] })
     ] })
   ] });
 }
-const styles$a = {
+const styles$b = {
   wrapper: {
     textAlign: "center",
     marginTop: "4rem",
@@ -9393,6 +9413,24 @@ const styles$a = {
     color: "#333",
     maxWidth: "500px",
     margin: "0 auto"
+  },
+  previewBlock: {
+    marginTop: "2rem",
+    maxWidth: "600px",
+    marginLeft: "auto",
+    marginRight: "auto"
+  },
+  image: {
+    width: "100%",
+    maxWidth: "100%",
+    height: "auto",
+    borderRadius: "10px",
+    marginBottom: "1rem"
+  },
+  previewText: {
+    fontSize: "1rem",
+    color: "#555",
+    lineHeight: "1.6"
   },
   buttonGroup: {
     marginTop: "2rem",
@@ -9497,9 +9535,9 @@ function Login() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Login" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleLogin, style: styles$9.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleLogin, style: styles$a.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9508,13 +9546,13 @@ function Login() {
             value: identifier,
             onChange: (e) => setIdentifier(e.target.value),
             style: {
-              ...styles$9.input,
+              ...styles$a.input,
               borderColor: inputError ? "red" : "#ccc"
             },
             required: true
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.passwordContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.passwordContainer, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
@@ -9523,7 +9561,7 @@ function Login() {
               value: password,
               onChange: (e) => setPassword(e.target.value),
               style: {
-                ...styles$9.input,
+                ...styles$a.input,
                 borderColor: inputError ? "red" : "#ccc",
                 flex: 1
               },
@@ -9535,12 +9573,12 @@ function Login() {
             {
               type: "button",
               onClick: () => setShowPassword(!showPassword),
-              style: styles$9.toggleButton,
+              style: styles$a.toggleButton,
               children: showPassword ? "🙈 Hide" : "👁️ Show"
             }
           )
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.checkboxContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.checkboxContainer, children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx(
             "input",
             {
@@ -9551,10 +9589,10 @@ function Login() {
           ),
           /* @__PURE__ */ jsxRuntimeExports.jsx("label", { style: { marginLeft: "0.5rem" }, children: "Remember me" })
         ] }),
-        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.error, children: error }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$9.button, children: "Login" })
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$a.error, children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$a.button, children: "Login" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$a.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "Forgot your password? ",
           /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/forgot-password", children: "Click here" })
@@ -9571,7 +9609,7 @@ function Login() {
     ] })
   ] });
 }
-const styles$9 = {
+const styles$a = {
   container: {
     maxWidth: "400px",
     margin: "3rem auto",
@@ -9689,9 +9727,9 @@ function Register() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$9.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Register" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleRegister, style: styles$8.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleRegister, style: styles$9.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9699,7 +9737,7 @@ function Register() {
             placeholder: "Username",
             value: username,
             onChange: (e) => setUsername(e.target.value),
-            style: styles$8.input,
+            style: styles$9.input,
             required: true
           }
         ),
@@ -9710,7 +9748,7 @@ function Register() {
             placeholder: "Email",
             value: email,
             onChange: (e) => setEmail(e.target.value),
-            style: styles$8.input,
+            style: styles$9.input,
             required: true
           }
         ),
@@ -9721,7 +9759,7 @@ function Register() {
             placeholder: "Password (letters and numbers only)",
             value: password,
             onChange: (e) => setPassword(e.target.value),
-            style: styles$8.input,
+            style: styles$9.input,
             required: true
           }
         ),
@@ -9732,22 +9770,22 @@ function Register() {
             placeholder: "Confirm Password",
             value: confirmPassword,
             onChange: (e) => setConfirmPassword(e.target.value),
-            style: styles$8.input,
+            style: styles$9.input,
             required: true
           }
         ),
-        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.error, children: error }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$8.button, children: "Register" })
+        error && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.error, children: error }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$9.button, children: "Register" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.success, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$8.linkText, children: [
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$9.success, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { style: styles$9.linkText, children: [
         "Already have an account? ",
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "Login" })
       ] })
     ] })
   ] });
 }
-const styles$8 = {
+const styles$9 = {
   container: {
     maxWidth: "400px",
     margin: "2rem auto",
@@ -9801,9 +9839,9 @@ function ForgotPassword() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$8.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$8.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Forgot Password" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, style: styles$7.form, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("form", { onSubmit: handleSubmit, style: styles$8.form, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -9811,18 +9849,18 @@ function ForgotPassword() {
             placeholder: "Enter your registered email",
             value: email,
             onChange: (e) => setEmail(e.target.value),
-            style: styles$7.input,
+            style: styles$8.input,
             required: true
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$7.button, children: "Send Reset Link" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { type: "submit", style: styles$8.button, children: "Send Reset Link" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$7.message, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$7.linkText, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "← Back to Login" }) })
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.message, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$8.linkText, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/login", children: "← Back to Login" }) })
     ] }) })
   ] });
 }
-const styles$7 = {
+const styles$8 = {
   wrapper: {
     padding: "1rem"
   },
@@ -9927,11 +9965,11 @@ function CreateSubAdmin() {
   const totalPages = Math.ceil(admins.length / adminsPerPage);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$6.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.wrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$7.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Create Sub-Admin Account" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", style: styles$6.link, children: "← Back to Admin Profile" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCreate, style: styles$6.createButton, children: "➕ Create Sub-Admin" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$6.table, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/profile", style: styles$7.link, children: "← Back to Admin Profile" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleCreate, style: styles$7.createButton, children: "➕ Create Sub-Admin" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { overflowX: "auto" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$7.table, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Username" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Email" }),
@@ -9945,17 +9983,17 @@ function CreateSubAdmin() {
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: admin.status }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: admin.password }),
           /* @__PURE__ */ jsxRuntimeExports.jsxs("td", { children: [
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => toggleStatus(admin.id), style: styles$6.actionBtn, children: admin.status === "active" ? "❄ Freeze" : "✅ Unfreeze" }),
-            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(admin.id), style: styles$6.deleteBtn, children: "❌ Delete" })
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => toggleStatus(admin.id), style: styles$7.actionBtn, children: admin.status === "active" ? "❄ Freeze" : "✅ Unfreeze" }),
+            /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => handleDelete(admin.id), style: styles$7.deleteBtn, children: "❌ Delete" })
           ] })
         ] }, admin.id)) })
       ] }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$6.pagination, children: Array.from({ length: totalPages }, (_2, i2) => i2 + 1).map((p2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$7.pagination, children: Array.from({ length: totalPages }, (_2, i2) => i2 + 1).map((p2) => /* @__PURE__ */ jsxRuntimeExports.jsx(
         "button",
         {
           onClick: () => setCurrentPage(p2),
           style: {
-            ...styles$6.pageBtn,
+            ...styles$7.pageBtn,
             backgroundColor: currentPage === p2 ? "#007bff" : "#eee",
             color: currentPage === p2 ? "#fff" : "#000"
           },
@@ -9966,7 +10004,7 @@ function CreateSubAdmin() {
     ] }) })
   ] });
 }
-const styles$6 = {
+const styles$7 = {
   wrapper: {
     padding: "1rem"
   },
@@ -17585,7 +17623,7 @@ function(t2) {
  */
 function(t2) {
   function e() {
-    return (n.canvg ? Promise.resolve(n.canvg) : __vitePreload(() => import("./index.es-CTT7Nn2E.js"), true ? [] : void 0)).catch(function(t3) {
+    return (n.canvg ? Promise.resolve(n.canvg) : __vitePreload(() => import("./index.es-CU8GiwcC.js"), true ? [] : void 0)).catch(function(t3) {
       return Promise.reject(new Error("Could not load canvg: " + t3));
     }).then(function(t3) {
       return t3.default ? t3.default : t3;
@@ -18379,7 +18417,7 @@ function AdminProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Admin Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Logged in as:" }),
@@ -18389,7 +18427,7 @@ function AdminProfile() {
         user == null ? void 0 : user.role,
         ")"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.searchSection, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.searchSection, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -18397,12 +18435,12 @@ function AdminProfile() {
             placeholder: "Search user by username",
             value: searchUsername,
             onChange: (e) => setSearchUsername(e.target.value),
-            style: styles$5.input
+            style: styles$6.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$5.button, children: "Search" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$6.button, children: "Search" })
       ] }),
-      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.result, children: [
+      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.result, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
           "User: ",
           foundUserData.username
@@ -18425,25 +18463,25 @@ function AdminProfile() {
             "button",
             {
               onClick: () => downloadQuizResultAsPDF(q2, foundUserData.username),
-              style: styles$5.exportBtn,
+              style: styles$6.exportBtn,
               children: "📥 Download PDF"
             }
           )
         ] }, idx)) })
       ] }) : searchUsername && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No user found or no records." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { style: { margin: "2rem 0" } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$6.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/questions", children: "🧠 Manage Question Bank" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/data", children: "📊 Export & Analyze User Data" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         (user == null ? void 0 : user.username) === "admin" && /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/create-admin", children: "👤 Create Sub-Admin Account" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$5.logoutButton, children: "🚪 Logout" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$6.logoutButton, children: "🚪 Logout" })
     ] })
   ] });
 }
-const styles$5 = {
+const styles$6 = {
   container: {
     maxWidth: "700px",
     margin: "2rem auto",
@@ -18544,7 +18582,7 @@ function SubAdminProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: { padding: "2rem" }, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Sub-Admin Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Logged in as:" }),
@@ -18554,7 +18592,7 @@ function SubAdminProfile() {
         user == null ? void 0 : user.role,
         ")"
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.searchSection, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.searchSection, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -18562,12 +18600,12 @@ function SubAdminProfile() {
             placeholder: "Search user by username",
             value: searchUsername,
             onChange: (e) => setSearchUsername(e.target.value),
-            style: styles$4.input
+            style: styles$5.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$4.button, children: "Search" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleSearch, style: styles$5.button, children: "Search" })
       ] }),
-      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.result, children: [
+      foundUserData ? /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.result, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("h3", { children: [
           "User: ",
           foundUserData.username
@@ -18585,23 +18623,23 @@ function SubAdminProfile() {
           "button",
           {
             onClick: () => exportToPDF(foundUserData.quizRecords, foundUserData.username),
-            style: styles$4.downloadButton,
+            style: styles$5.downloadButton,
             children: "📄 Download PDF"
           }
         )
       ] }) : searchUsername && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No user found." }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("hr", { style: { margin: "2rem 0" } }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.links, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$5.links, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/questions", children: "🧠 Manage Question Bank" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
         /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/admin/data", children: "📊 Export & Analyze User Data" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("br", {})
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$4.logoutButton, children: "🚪 Logout" })
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$5.logoutButton, children: "🚪 Logout" })
     ] }) })
   ] });
 }
-const styles$4 = {
+const styles$5 = {
   container: {
     maxWidth: "700px",
     margin: "0 auto",
@@ -18738,7 +18776,7 @@ function UserProfile() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "User Profile" }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Email:" }),
@@ -18750,7 +18788,7 @@ function UserProfile() {
         " ",
         user.username
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Subscription" }),
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           "Status: ",
@@ -18765,13 +18803,13 @@ function UserProfile() {
           subscription.plan
         ] }),
         isExpired && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "red", fontWeight: "bold" }, children: "Your subscription has expired. Please renew to regain access." }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/subscribe", style: styles$3.linkButton, children: "🔗 Go to Subscription Page" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/subscribe", style: styles$4.linkButton, children: "🔗 Go to Subscription Page" })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Your Quiz Records" }),
         quizRecords.length > 0 ? /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: exportAllPDF, style: styles$3.exportAllButton, children: "📥 Export All as PDF" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$3.list, children: quizRecords.map((q2, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$3.recordItem, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: exportAllPDF, style: styles$4.exportAllButton, children: "📥 Export All as PDF" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$4.list, children: quizRecords.map((q2, idx) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { style: styles$4.recordItem, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
               /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: q2.title }),
               /* @__PURE__ */ jsxRuntimeExports.jsx("br", {}),
@@ -18785,14 +18823,14 @@ function UserProfile() {
               "button",
               {
                 onClick: () => exportSinglePDF(user.username, user.email, q2, idx),
-                style: styles$3.exportBtn,
+                style: styles$4.exportBtn,
                 children: "📤 Export"
               }
             )
           ] }, idx)) })
         ] }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "No quiz records found." })
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.section, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$4.section, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { children: "Change Password" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
@@ -18801,7 +18839,7 @@ function UserProfile() {
             placeholder: "Current Password",
             value: oldPassword,
             onChange: (e) => setOldPassword(e.target.value),
-            style: styles$3.input
+            style: styles$4.input
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -18811,7 +18849,7 @@ function UserProfile() {
             placeholder: "New Password",
             value: newPassword,
             onChange: (e) => setNewPassword(e.target.value),
-            style: styles$3.input
+            style: styles$4.input
           }
         ),
         /* @__PURE__ */ jsxRuntimeExports.jsx(
@@ -18821,17 +18859,17 @@ function UserProfile() {
             placeholder: "Confirm New Password",
             value: confirmPassword,
             onChange: (e) => setConfirmPassword(e.target.value),
-            style: styles$3.input
+            style: styles$4.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePasswordChange, style: styles$3.button, children: "Update Password" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handlePasswordChange, style: styles$4.button, children: "Update Password" })
       ] }),
-      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$3.message, children: message }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$3.logoutButton, children: "🚪 Logout" })
+      message && /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles$4.message, children: message }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleLogout, style: styles$4.logoutButton, children: "🚪 Logout" })
     ] })
   ] });
 }
-const styles$3 = {
+const styles$4 = {
   container: {
     maxWidth: "700px",
     margin: "2rem auto",
@@ -19171,9 +19209,9 @@ function AdminData() {
   const averageScore = filtered.length > 0 ? (filtered.reduce((sum, r) => sum + r.score, 0) / filtered.length).toFixed(2) : "N/A";
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Export & Analyze Quiz Data" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.controls, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$3.controls, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx(
           "input",
           {
@@ -19181,11 +19219,11 @@ function AdminData() {
             placeholder: "Filter by username",
             value: filter,
             onChange: (e) => setFilter(e.target.value),
-            style: styles$2.input
+            style: styles$3.input
           }
         ),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToCSV(filtered), style: styles$2.exportButton, children: "📤 Export CSV" }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToJSON(filtered), style: styles$2.exportButton, children: "📥 Export JSON" })
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToCSV(filtered), style: styles$3.exportButton, children: "📤 Export CSV" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: () => exportToJSON(filtered), style: styles$3.exportButton, children: "📥 Export JSON" })
       ] }),
       /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Average Score:" }),
@@ -19196,7 +19234,7 @@ function AdminData() {
         " ",
         filtered.length
       ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$2.tableWrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$2.table, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles$3.tableWrapper, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { style: styles$3.table, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("thead", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Username" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("th", { children: "Email" }),
@@ -19215,7 +19253,7 @@ function AdminData() {
     ] })
   ] });
 }
-const styles$2 = {
+const styles$3 = {
   container: {
     maxWidth: "1000px",
     margin: "2rem auto",
@@ -19434,46 +19472,46 @@ function Pricing() {
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
     " ",
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.container, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: styles$1.heading, children: "Choose Your Subscription Plan" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.cardContainer, children: [
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.card, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: styles$1.title, children: "$0.99 / day" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.container, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: styles$2.heading, children: "Choose Your Subscription Plan" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.cardContainer, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: styles$2.title, children: "$0.99 / day" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Daily Subscription" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: styles$1.list, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: styles$2.list, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ 1 personalized AI feedback report" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "🚫 No access to video courses" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "🚫 No templates or live sessions" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/checkout?plan=basic", style: styles$1.button, children: "Subscribe" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/checkout?plan=basic", style: styles$2.button, children: "Subscribe" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.card, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: styles$1.title, children: "$4.99 / week" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: styles$2.title, children: "$4.99 / week" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Weekly Subscription" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: styles$1.list, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: styles$2.list, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Unlimited AI reports" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Access to all video courses" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Downloadable planning templates" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Weekly live Q&A sessions" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/checkout?plan=weekly", style: styles$1.button, children: "Subscribe" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/checkout?plan=weekly", style: styles$2.button, children: "Subscribe" })
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.card, children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: styles$1.title, children: "$16.99 / month" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$2.card, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h3", { style: styles$2.title, children: "$16.99 / month" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Monthly Subscription" }) }),
-          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: styles$1.list, children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsxs("ul", { style: styles$2.list, children: [
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Unlimited AI reports" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ All video courses" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Templates + tools" }),
             /* @__PURE__ */ jsxRuntimeExports.jsx("li", { children: "✔ Priority live Q&A access" })
           ] }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/checkout?plan=monthly", style: styles$1.button, children: "Subscribe" })
+          /* @__PURE__ */ jsxRuntimeExports.jsx(Link, { to: "/checkout?plan=monthly", style: styles$2.button, children: "Subscribe" })
         ] })
       ] })
     ] })
   ] });
 }
-const styles$1 = {
+const styles$2 = {
   container: {
     maxWidth: "1100px",
     margin: "2rem auto",
@@ -19590,9 +19628,9 @@ function Checkout() {
   };
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles.container, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.container, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Checkout" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles.card, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles$1.card, children: [
         /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("strong", { children: "Plan:" }),
           " ",
@@ -19603,16 +19641,16 @@ function Checkout() {
           " $",
           plan.price.toFixed(2)
         ] }),
-        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles.list, children: plan.benefits.map((b2, i2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("ul", { style: styles$1.list, children: plan.benefits.map((b2, i2) => /* @__PURE__ */ jsxRuntimeExports.jsxs("li", { children: [
           "✔ ",
           b2
         ] }, i2)) }),
-        !confirmed ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleConfirm, style: styles.button, children: "✅ Confirm Payment (Simulated)" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "green", fontWeight: "bold" }, children: "✅ Subscription activated! Redirecting to profile..." })
+        !confirmed ? /* @__PURE__ */ jsxRuntimeExports.jsx("button", { onClick: handleConfirm, style: styles$1.button, children: "✅ Confirm Payment (Simulated)" }) : /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: { color: "green", fontWeight: "bold" }, children: "✅ Subscription activated! Redirecting to profile..." })
       ] })
     ] })
   ] });
 }
-const styles = {
+const styles$1 = {
   container: {
     maxWidth: "600px",
     margin: "2rem auto",
@@ -19646,6 +19684,52 @@ const styles = {
     cursor: "pointer"
   }
 };
+function ContactUs() {
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx(TopNav, {}),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { style: styles.page, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles.card, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { style: styles.title, children: "Contact Us" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { style: styles.desc, children: "We're here to help. Please reach out to us with any questions or concerns." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { style: styles.info, children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "📍 123 Greenway Ave, Melbourne VIC 3000, Australia" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "📞 +61 3 9123 4567" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "✉️ info@deathliteracy.org" })
+      ] })
+    ] }) })
+  ] });
+}
+const styles = {
+  page: {
+    backgroundColor: "#f8f9fa",
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: "2rem"
+  },
+  card: {
+    backgroundColor: "#fff",
+    borderRadius: "12px",
+    padding: "2rem",
+    maxWidth: "500px",
+    width: "100%",
+    textAlign: "center",
+    boxShadow: "0 4px 12px rgba(0,0,0,0.1)"
+  },
+  title: {
+    color: "green",
+    marginBottom: "1rem"
+  },
+  desc: {
+    color: "#555",
+    marginBottom: "1.5rem"
+  },
+  info: {
+    color: "#333",
+    lineHeight: "1.8rem",
+    fontSize: "1rem"
+  }
+};
 const defaultAdmin = {
   username: "admin",
   email: "admin",
@@ -19671,6 +19755,8 @@ function App() {
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/forgot-password", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ForgotPassword, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/subscribe", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Pricing, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/checkout", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Checkout, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/contact-us", element: /* @__PURE__ */ jsxRuntimeExports.jsx(ContactUs, {}) }),
+    " ",
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/quiz", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Quiz, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/result", element: /* @__PURE__ */ jsxRuntimeExports.jsx(Result, {}) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx(Route, { path: "/admin/profile", element: /* @__PURE__ */ jsxRuntimeExports.jsx(AdminProfile, {}) }),
@@ -19691,4 +19777,4 @@ export {
   commonjsGlobal as c,
   getDefaultExportFromCjs as g
 };
-//# sourceMappingURL=index-DFHk6EuJ.js.map
+//# sourceMappingURL=index-Cn3sMryj.js.map
